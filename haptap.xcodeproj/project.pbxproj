@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		439B3AAA1B0AB14A000BF4C7 /* Drawing (5).png in Resources */ = {isa = PBXBuildFile; fileRef = 439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */; };
 		439C75CC1B07A33F008E1869 /* smile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 439C75CB1B07A33F008E1869 /* smile.jpg */; };
 		439C75CE1B07E51B008E1869 /* imageedit_13_8830082453.gif in Resources */ = {isa = PBXBuildFile; fileRef = 439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */; };
 		43BBC1D21AEEFF6F00ECE4D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BBC1D11AEEFF6F00ECE4D5 /* main.m */; };
@@ -56,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drawing (5).png"; sourceTree = "<group>"; };
 		439C75CB1B07A33F008E1869 /* smile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smile.jpg; sourceTree = "<group>"; };
 		439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = imageedit_13_8830082453.gif; sourceTree = "<group>"; };
 		43BBC1CC1AEEFF6F00ECE4D5 /* haptap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haptap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -187,6 +189,7 @@
 				439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */,
 				43DF2A6F1AEF1B3700263D58 /* Tangry.png */,
 				43DF2A701AEF1B3700263D58 /* Tcontent.png */,
+				439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */,
 				43DF2A711AEF1B3700263D58 /* Tokay.png */,
 				43DF2A7B1AEF1CC900263D58 /* coollogo_com-4169497.png */,
 				439C75CB1B07A33F008E1869 /* smile.jpg */,
@@ -287,6 +290,7 @@
 				TargetAttributes = {
 					43BBC1CB1AEEFF6F00ECE4D5 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 2D424PLK4C;
 					};
 					43BBC1E41AEEFF6F00ECE4D5 = {
 						CreatedOnToolsVersion = 6.4;
@@ -327,6 +331,7 @@
 				439C75CC1B07A33F008E1869 /* smile.jpg in Resources */,
 				439C75CE1B07E51B008E1869 /* imageedit_13_8830082453.gif in Resources */,
 				43DF2A7A1AEF1B3700263D58 /* Tverysad.png in Resources */,
+				439B3AAA1B0AB14A000BF4C7 /* Drawing (5).png in Resources */,
 				43BBC1E01AEEFF6F00ECE4D5 /* LaunchScreen.xib in Resources */,
 				43DF2A751AEF1B3700263D58 /* Tangry.png in Resources */,
 				43BBC1DD1AEEFF6F00ECE4D5 /* Images.xcassets in Resources */,
@@ -479,13 +484,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/haptap",
 				);
 				INFOPLIST_FILE = haptap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -493,13 +502,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/haptap",
 				);
 				INFOPLIST_FILE = haptap/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

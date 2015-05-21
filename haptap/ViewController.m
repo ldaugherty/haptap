@@ -9,15 +9,41 @@
 #import "ViewController.h"
 #import "SignUpViewController.h"
 
-@interface ViewController ()
+@interface Emotion : NSObject
+
+@property (nonatomic, strong) NSString *title;
+@property (nonatomic, strong) UIImage *image;
+
+@end
+
+@implementation Emotion
 
 
 @end
+
+@interface ViewController ()
+
+@property (nonatomic, strong) NSMutableArray *emotions;
+@property (nonatomic, strong) Emotion *selectedEmotion;
+@property (nonatomic,strong) UIImageView *emojiImageUp;
+@end
+
+
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    NSArray *emotionNames = @[@"sad", @"angry", @"annoyed", @"anxious", @"confused", @"amused", @"excited", @"happy", @"loving"];
+    
+    self.emotions = [NSMutableArray array];
+    
+    for (NSString *emotionName in emotionNames) {
+        [self.emotions addObject:[self emotionWithTitle:emotionName image:[UIImage imageNamed:emotionName]]];
+    }
+    
+    [self.gridView reloadData];
     
     PFObject *emotion = [PFObject objectWithClassName:@"Emotion"];
     PFUser *user = [PFUser currentUser];
@@ -35,7 +61,15 @@
     [self.reasonLabel setHidden:YES];
     [self.actuallyNoReasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
+    self.submitEmotionLabel.hidden = YES;
    }
+
+- (Emotion *)emotionWithTitle:(NSString *)title image:(UIImage *)image {
+    Emotion *emotion = [Emotion new];
+    emotion.title = title;
+    emotion.image = image;
+    return emotion;
+}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -55,6 +89,21 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)differentEmotionButton:(id)sender {
+    self.barelyLabel.hidden = YES;
+    self.extremelyLabel.hidden = YES;
+    self.gridView.hidden = NO;
+    self.gridView.alpha = 1;
+    self.differentEmotionLabel.hidden = YES;
+    self.howAreYouFeelingLabel.hidden = NO;
+    self.howAreYouFeelingLabel.text = @"How are you feeling?";
+    self.slider.hidden = YES;
+    self.neutralLabel.hidden = NO;
+    self.submitEmotionLabel.hidden = YES;
+    self.howAreYouLabel.hidden = NO;
+    [self.emojiImageUp removeFromSuperview];
+}
+
 - (IBAction)submitEmotionButton:(id)sender {
     [self.noReasonLabel setHidden:NO];
     [self.yesReasonLabel setHidden:NO];
@@ -64,6 +113,11 @@
     [self.slider setHidden:YES];
     [self.sliderLabel setHidden:YES];
     [self.thankYouLabel setHidden:NO];
+    self.barelyLabel.hidden = YES;
+    self.extremelyLabel.hidden = YES;
+    self.differentEmotionLabel.hidden = YES;
+    self.emojiImageUp.hidden = YES;
+    [self.emojiImageUp removeFromSuperview];
 }
 
 // enter all possible slider values & assign thumb image & label text with emotion
@@ -141,6 +195,8 @@
     [self.yesReasonLabel setHidden:YES];
     [self.noReasonLabel setHidden:YES];
     [self.reasonTextField setHidden:NO];
+    [self.reasonTextField becomeFirstResponder];
+    
     [self.submitReasonLabel setHidden:NO];
     [self.actuallyNoReasonLabel setHidden:NO];
 }
@@ -161,6 +217,7 @@
     [self.reasonLabel setHidden:YES];
     [self.submitReasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
+   
 }
 
 - (IBAction)goToMyTrendsPageButton:(id)sender {
@@ -180,4 +237,91 @@
     [self.thankYouLabel setHidden:YES];
     
 }
+
+- (IBAction)neutralButton:(id)sender {
+    self.gridView.hidden = YES;
+    self.neutralLabel.hidden = YES;
+    self.howAreYouFeelingLabel.hidden = YES;
+    self.submitEmotionLabel.hidden = YES;
+    self.goToChatWithSomeoneLabel.hidden = NO;
+    self.goToMyTrendsPageLabel.hidden = NO;
+}
+
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString *identifier = @"Cell";
+    
+    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:identifier forIndexPath:indexPath];
+    
+    UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(-10, 60, 100, 15)];
+    label.textAlignment = NSTextAlignmentCenter;
+    label.font = [UIFont systemFontOfSize:11];
+    [cell.contentView addSubview:label];
+
+    UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(10, 0, 60, 60)];
+    [cell.contentView addSubview:imageView];
+   
+    Emotion *emotion = [self.emotions objectAtIndex:indexPath.item];
+    label.text = emotion.title;
+    imageView.image = emotion.image;
+    
+    return cell;
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    return [self.emotions count];
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Selected emotion: %@", self.emotions[indexPath.item]);
+    self.selectedEmotion = self.emotions[indexPath.item];
+    self.slider.alpha = 0;
+    self.slider.hidden = NO;
+    self.barelyLabel.hidden = NO;
+    self.extremelyLabel.hidden = NO;
+    self.neutralLabel.hidden = YES;
+    
+    UIView *cellContent = [self.gridView cellForItemAtIndexPath:indexPath].contentView;
+    UIImageView *emojiImageView;
+    for (UIView *view in cellContent.subviews) {
+        if ([view isMemberOfClass:[UIImageView class]]) {
+            emojiImageView = (UIImageView *) view;
+            break;
+        }
+    }
+    
+    if (!emojiImageView) {
+        NSLog(@"WUTTT");
+        return;
+    }
+    
+    CGPoint p = [emojiImageView.superview convertPoint:emojiImageView.center toView:self.view];
+    
+    self.emojiImageUp = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 60, 60)];
+    self.emojiImageUp.image = emojiImageView.image;
+    
+    self.emojiImageUp.center = p;
+    
+    [self.view addSubview:self.emojiImageUp];
+    
+    CGPoint center = self.howAreYouFeelingLabel.center;
+    
+    [UIView animateWithDuration:0.2 animations:^{
+        self.gridView.alpha = 0;
+        self.slider.alpha = 1;
+        self.howAreYouFeelingLabel.text = [NSString stringWithFormat:@"How %@ are you?", self.selectedEmotion.title];
+        CGFloat size = 60;
+        self.howAreYouLabel.hidden = YES;
+        
+        self.emojiImageUp.frame = CGRectMake((self.view.frame.size.width / 2.f) - (size/2.f), 162, size, size);
+    } completion:^(BOOL finished) {
+        self.gridView.hidden = YES;
+        self.differentEmotionLabel.hidden = NO;
+    }];
+    self.submitEmotionLabel.hidden = NO;
+    
+}
+
 @end
