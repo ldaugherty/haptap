@@ -37,13 +37,6 @@
 		43BE0DFF1AFE8E7600B9B2BC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BE0DFE1AFE8E7600B9B2BC /* ParseUI.framework */; };
 		43D43CDB1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D43CDA1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m */; };
 		43D43CDE1B06B8F200016BB5 /* ChatWithSomeoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D43CDD1B06B8F200016BB5 /* ChatWithSomeoneViewController.m */; };
-		43DF2A751AEF1B3700263D58 /* Tangry.png in Resources */ = {isa = PBXBuildFile; fileRef = 43DF2A6F1AEF1B3700263D58 /* Tangry.png */; };
-		43DF2A761AEF1B3700263D58 /* Tcontent.png in Resources */ = {isa = PBXBuildFile; fileRef = 43DF2A701AEF1B3700263D58 /* Tcontent.png */; };
-		43DF2A771AEF1B3700263D58 /* Tokay.png in Resources */ = {isa = PBXBuildFile; fileRef = 43DF2A711AEF1B3700263D58 /* Tokay.png */; };
-		43DF2A781AEF1B3700263D58 /* Tsad.png in Resources */ = {isa = PBXBuildFile; fileRef = 43DF2A721AEF1B3700263D58 /* Tsad.png */; };
-		43DF2A791AEF1B3700263D58 /* Tsmile.png in Resources */ = {isa = PBXBuildFile; fileRef = 43DF2A731AEF1B3700263D58 /* Tsmile.png */; };
-		43DF2A7A1AEF1B3700263D58 /* Tverysad.png in Resources */ = {isa = PBXBuildFile; fileRef = 43DF2A741AEF1B3700263D58 /* Tverysad.png */; };
-		43DF2A7C1AEF1CC900263D58 /* coollogo_com-4169497.png in Resources */ = {isa = PBXBuildFile; fileRef = 43DF2A7B1AEF1CC900263D58 /* coollogo_com-4169497.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,13 +90,6 @@
 		43D43CDA1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTUALMyTrendsViewController.m; sourceTree = "<group>"; };
 		43D43CDC1B06B8F200016BB5 /* ChatWithSomeoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatWithSomeoneViewController.h; sourceTree = "<group>"; };
 		43D43CDD1B06B8F200016BB5 /* ChatWithSomeoneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatWithSomeoneViewController.m; sourceTree = "<group>"; };
-		43DF2A6F1AEF1B3700263D58 /* Tangry.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tangry.png; path = ../../../Downloads/Tangry.png; sourceTree = "<group>"; };
-		43DF2A701AEF1B3700263D58 /* Tcontent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tcontent.png; path = ../../../Downloads/Tcontent.png; sourceTree = "<group>"; };
-		43DF2A711AEF1B3700263D58 /* Tokay.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tokay.png; path = ../../../Downloads/Tokay.png; sourceTree = "<group>"; };
-		43DF2A721AEF1B3700263D58 /* Tsad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tsad.png; path = ../../../Downloads/Tsad.png; sourceTree = "<group>"; };
-		43DF2A731AEF1B3700263D58 /* Tsmile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tsmile.png; path = ../../../Downloads/Tsmile.png; sourceTree = "<group>"; };
-		43DF2A741AEF1B3700263D58 /* Tverysad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Tverysad.png; path = ../../../Downloads/Tverysad.png; sourceTree = "<group>"; };
-		43DF2A7B1AEF1CC900263D58 /* coollogo_com-4169497.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "coollogo_com-4169497.png"; path = "../../../Downloads/coollogo_com-4169497.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,15 +173,8 @@
 			children = (
 				43BBC1D01AEEFF6F00ECE4D5 /* Info.plist */,
 				439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */,
-				43DF2A6F1AEF1B3700263D58 /* Tangry.png */,
-				43DF2A701AEF1B3700263D58 /* Tcontent.png */,
 				439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */,
-				43DF2A711AEF1B3700263D58 /* Tokay.png */,
-				43DF2A7B1AEF1CC900263D58 /* coollogo_com-4169497.png */,
 				439C75CB1B07A33F008E1869 /* smile.jpg */,
-				43DF2A721AEF1B3700263D58 /* Tsad.png */,
-				43DF2A731AEF1B3700263D58 /* Tsmile.png */,
-				43DF2A741AEF1B3700263D58 /* Tverysad.png */,
 				43BBC1D11AEEFF6F00ECE4D5 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -322,18 +301,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43DF2A7C1AEF1CC900263D58 /* coollogo_com-4169497.png in Resources */,
-				43DF2A771AEF1B3700263D58 /* Tokay.png in Resources */,
-				43DF2A761AEF1B3700263D58 /* Tcontent.png in Resources */,
-				43DF2A781AEF1B3700263D58 /* Tsad.png in Resources */,
-				43DF2A791AEF1B3700263D58 /* Tsmile.png in Resources */,
 				43BBC1DB1AEEFF6F00ECE4D5 /* Main.storyboard in Resources */,
 				439C75CC1B07A33F008E1869 /* smile.jpg in Resources */,
 				439C75CE1B07E51B008E1869 /* imageedit_13_8830082453.gif in Resources */,
-				43DF2A7A1AEF1B3700263D58 /* Tverysad.png in Resources */,
 				439B3AAA1B0AB14A000BF4C7 /* Drawing (5).png in Resources */,
 				43BBC1E01AEEFF6F00ECE4D5 /* LaunchScreen.xib in Resources */,
-				43DF2A751AEF1B3700263D58 /* Tangry.png in Resources */,
 				43BBC1DD1AEEFF6F00ECE4D5 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
