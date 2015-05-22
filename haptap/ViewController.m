@@ -245,6 +245,7 @@
     self.submitEmotionLabel.hidden = YES;
     self.goToChatWithSomeoneLabel.hidden = NO;
     self.goToMyTrendsPageLabel.hidden = NO;
+    self.howAreYouLabel.hidden = YES;
 }
 
 

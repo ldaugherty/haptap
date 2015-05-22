@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <Firebase/Firebase.h>
 
 @interface ChatWithSomeoneViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
@@ -22,5 +23,9 @@
 - (IBAction)hideTipsButton:(id)sender;
 
 @property (strong, nonatomic) IBOutlet UIButton *hideTipsOutlet;
+
+//chat buttons
+- (IBAction)chatWithEveryoneButton:(id)sender;
+- (IBAction)findMeSomeoneButton:(id)sender;
 
 @end

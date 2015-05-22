@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		439B3AAA1B0AB14A000BF4C7 /* Drawing (5).png in Resources */ = {isa = PBXBuildFile; fileRef = 439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */; };
+		439B3AAC1B0D79BE000BF4C7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAB1B0D79BE000BF4C7 /* Firebase.framework */; };
+		439B3AAE1B0D79E7000BF4C7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAD1B0D79E7000BF4C7 /* libicucore.dylib */; };
+		439B3AB01B0D79F4000BF4C7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAF1B0D79F4000BF4C7 /* libc++.dylib */; };
+		439B3AE81B0D8348000BF4C7 /* GlobalChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439B3AE71B0D8348000BF4C7 /* GlobalChatViewController.m */; };
 		439C75CC1B07A33F008E1869 /* smile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 439C75CB1B07A33F008E1869 /* smile.jpg */; };
 		439C75CE1B07E51B008E1869 /* imageedit_13_8830082453.gif in Resources */ = {isa = PBXBuildFile; fileRef = 439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */; };
 		43BBC1D21AEEFF6F00ECE4D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BBC1D11AEEFF6F00ECE4D5 /* main.m */; };
@@ -51,6 +55,11 @@
 
 /* Begin PBXFileReference section */
 		439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drawing (5).png"; sourceTree = "<group>"; };
+		439B3AAB1B0D79BE000BF4C7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
+		439B3AAD1B0D79E7000BF4C7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		439B3AAF1B0D79F4000BF4C7 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		439B3AE61B0D8348000BF4C7 /* GlobalChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalChatViewController.h; sourceTree = "<group>"; };
+		439B3AE71B0D8348000BF4C7 /* GlobalChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalChatViewController.m; sourceTree = "<group>"; };
 		439C75CB1B07A33F008E1869 /* smile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smile.jpg; sourceTree = "<group>"; };
 		439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = imageedit_13_8830082453.gif; sourceTree = "<group>"; };
 		43BBC1CC1AEEFF6F00ECE4D5 /* haptap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haptap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +106,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43BE0D701AFAFCFB00B9B2BC /* Security.framework in Frameworks */,
+				43BE0D661AFAFCDE00B9B2BC /* CFNetwork.framework in Frameworks */,
+				439B3AB01B0D79F4000BF4C7 /* libc++.dylib in Frameworks */,
+				439B3AAE1B0D79E7000BF4C7 /* libicucore.dylib in Frameworks */,
 				43BE0DF71AFE78FB00B9B2BC /* Bolts.framework in Frameworks */,
 				43BE0DE71AFC1CBE00B9B2BC /* libsqlite3.dylib in Frameworks */,
 				43BE0D7C1AFAFD3B00B9B2BC /* Social.framework in Frameworks */,
@@ -105,13 +118,12 @@
 				43BE0D741AFAFD0400B9B2BC /* SystemConfiguration.framework in Frameworks */,
 				43BE0DFF1AFE8E7600B9B2BC /* ParseUI.framework in Frameworks */,
 				43BE0D721AFAFD0000B9B2BC /* StoreKit.framework in Frameworks */,
-				43BE0D701AFAFCFB00B9B2BC /* Security.framework in Frameworks */,
 				43BE0D6E1AFAFCF700B9B2BC /* QuartzCore.framework in Frameworks */,
 				43BE0D6C1AFAFCEF00B9B2BC /* MobileCoreServices.framework in Frameworks */,
 				43BE0D6A1AFAFCE800B9B2BC /* CoreLocation.framework in Frameworks */,
 				43BE0DF51AFE78E700B9B2BC /* Parse.framework in Frameworks */,
+				439B3AAC1B0D79BE000BF4C7 /* Firebase.framework in Frameworks */,
 				43BE0D681AFAFCE300B9B2BC /* CoreGraphics.framework in Frameworks */,
-				43BE0D661AFAFCDE00B9B2BC /* CFNetwork.framework in Frameworks */,
 				43BE0D641AFAFCD800B9B2BC /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,6 +167,8 @@
 				43D43CDC1B06B8F200016BB5 /* ChatWithSomeoneViewController.h */,
 				43D43CDD1B06B8F200016BB5 /* ChatWithSomeoneViewController.m */,
 				43BBC1D91AEEFF6F00ECE4D5 /* Main.storyboard */,
+				439B3AE61B0D8348000BF4C7 /* GlobalChatViewController.h */,
+				439B3AE71B0D8348000BF4C7 /* GlobalChatViewController.m */,
 				43D43CD91B06AF4800016BB5 /* ACTUALMyTrendsViewController.h */,
 				43D43CDA1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m */,
 				43BE0DFB1AFE89A000B9B2BC /* SignUpViewController.h */,
@@ -200,6 +214,9 @@
 		43BE0E001AFE8F3600B9B2BC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				439B3AAF1B0D79F4000BF4C7 /* libc++.dylib */,
+				439B3AAD1B0D79E7000BF4C7 /* libicucore.dylib */,
+				439B3AAB1B0D79BE000BF4C7 /* Firebase.framework */,
 				43BE0DF61AFE78FB00B9B2BC /* Bolts.framework */,
 				43BE0DFE1AFE8E7600B9B2BC /* ParseUI.framework */,
 				43BE0DF41AFE78E700B9B2BC /* Parse.framework */,
@@ -326,6 +343,7 @@
 			files = (
 				43BBC1D81AEEFF6F00ECE4D5 /* ViewController.m in Sources */,
 				43BE0DFD1AFE89A000B9B2BC /* SignUpViewController.m in Sources */,
+				439B3AE81B0D8348000BF4C7 /* GlobalChatViewController.m in Sources */,
 				43D43CDE1B06B8F200016BB5 /* ChatWithSomeoneViewController.m in Sources */,
 				43BE0DFA1AFE897F00B9B2BC /* LogInViewController.m in Sources */,
 				43BBC1D51AEEFF6F00ECE4D5 /* AppDelegate.m in Sources */,
@@ -461,10 +479,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/haptap",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = haptap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -479,10 +499,12 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/haptap",
+					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = haptap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};

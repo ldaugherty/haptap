@@ -23,8 +23,8 @@
     // Do any additional setup after loading the view.
     // Do any additional setup after loading the view.
     // Initialize Data
-    _pickerData = @[@"happy", @"sad", @"annoyed/angry", @"anxious/nervous", @"excited"];
-    [self.picker selectRow:2 inComponent:0 animated:NO];
+    _pickerData = @[@"loving", @"happy", @"excited", @"amused", @"any way!", @"confused", @"anxious", @"annoyed", @"angry", @"sad"];
+    [self.picker selectRow:4 inComponent:0 animated:NO];
     [self.picker reloadAllComponents];
     
     //
@@ -82,5 +82,10 @@
     [self.tipLabelThree setHidden:YES];
     [self.tipLabelFour setHidden:YES];
     [self.hideTipsOutlet setHidden:YES];
+}
+- (IBAction)chatWithEveryoneButton:(id)sender {
+}
+
+- (IBAction)findMeSomeoneButton:(id)sender {
 }
 @end
