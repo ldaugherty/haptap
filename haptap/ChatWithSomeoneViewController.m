@@ -94,7 +94,7 @@
     NSString *theirEmotion = [self.pickerData objectAtIndex:[self.picker selectedRowInComponent:0]];
     
     // TODO: change any way to your real emotion
-    [self findChatWithEmotion:theirEmotion myEmotion:@"happy"];
+    [self findChatWithEmotion:theirEmotion];
     
     self.chatTitle = @"Chat With Someone";
 }
@@ -125,25 +125,46 @@
     Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:emotion];
     Firebase *newWaitingUser = [emotionFirebase childByAutoId];
     newWaitingUser.value = @{
-                             @"emotion" : lookingForEmotion,
+                             @"emotion_wanted" : lookingForEmotion,
                              @"username" : [PFUser currentUser].username
                              };
     [newWaitingUser observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        if (!snapshot.exists) return;
         NSString *chatPath = snapshot.value[@"chat"];
         if ([chatPath length]) {
             self.chatTitle = [NSString stringWithFormat:@"Chat with %@",snapshot.value[@"username2"]];
             self.firebase_path = [NSString stringWithFormat:@"chats/%@", chatPath];
+            [snapshot.ref removeValue]; // delete so the list doesnt get huge.
             [self performSegueWithIdentifier:@"ChatRoomSegue" sender:self];
         }
     }];
 }
 
-- (void)findChatWithEmotion:(NSString *)theirEmotion myEmotion:(NSString *)myEmotion {
+- (void)findChatWithAnyOtherEmotionForMyEmotion {
+    Firebase *allEmotionsFirebase = [[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"];
+    [allEmotionsFirebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        for (FDataSnapshot *userList in snapshot.children) {
+            for (FDataSnapshot *user in userList.children) {
+                if ([user.value[@"emotion_wanted"] isEqualToString:self.myCurrentEmotion] || [user.value[@"emotion_wanted"] isEqualToString:@"any way!"]) {
+                    if ([user.value[@"chat"] length]) {
+                        continue;
+                    }
+                    [self initiateNewChatWithFirebaseUser:user];
+                    return;
+                }
+            }
+        }
+        [self createWaitingFirebaseUserWithEmotion:self.myCurrentEmotion lookingForEmotion:@"any way!"];
+    }];
+}
+
+- (void)findChatWithEmotion:(NSString *)theirEmotion {
+    
     Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:theirEmotion];
     
     [emotionFirebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         for (FDataSnapshot *user in snapshot.children) {
-            if ([user.value[@"emotion"] isEqualToString:myEmotion] || [user.value[@"emotion"] isEqualToString:@"any"]) {
+            if ([user.value[@"emotion_wanted"] isEqualToString:self.myCurrentEmotion] || [user.value[@"emotion_wanted"] isEqualToString:@"any way!"]) {
                 if ([user.value[@"chat"] length]) {
                     continue;
                 }
@@ -151,7 +172,7 @@
                 return;
             }
         }
-        [self createWaitingFirebaseUserWithEmotion:myEmotion lookingForEmotion:theirEmotion];
+        [self createWaitingFirebaseUserWithEmotion:self.myCurrentEmotion lookingForEmotion:theirEmotion];
     }];
 }
 

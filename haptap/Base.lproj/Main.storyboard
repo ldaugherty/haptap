@@ -361,7 +361,7 @@
                                 </state>
                                 <connections>
                                     <action selector="goToChatWithSomeoneButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="62K-ZR-Sk8"/>
-                                    <segue destination="vtO-OP-e2k" kind="push" id="LGp-fk-oML"/>
+                                    <segue destination="vtO-OP-e2k" kind="push" identifier="viewControllerToChatWithSomeone" id="LGp-fk-oML"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8il-6i-Huq">

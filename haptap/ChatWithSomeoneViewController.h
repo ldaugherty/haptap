@@ -12,6 +12,7 @@
 @interface ChatWithSomeoneViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
+@property (strong, nonatomic) NSString *myCurrentEmotion;
 
 @property (strong, nonatomic) IBOutlet UILabel *whiteBackground;
 - (IBAction)showTipsButton:(id)sender;

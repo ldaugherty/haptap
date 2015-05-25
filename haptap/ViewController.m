@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "SignUpViewController.h"
+#import "ChatWithSomeoneViewController.h"
 
 @interface Emotion : NSObject
 
@@ -327,6 +328,13 @@
     }];
     self.submitEmotionLabel.hidden = NO;
     
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([[segue identifier] isEqualToString:@"viewControllerToChatWithSomeone"]) {
+        ChatWithSomeoneViewController *vc = [segue destinationViewController];
+        vc.myCurrentEmotion = self.selectedEmotion.title;
+    }
 }
 
 @end
