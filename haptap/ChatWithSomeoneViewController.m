@@ -159,6 +159,10 @@
 }
 
 - (void)findChatWithEmotion:(NSString *)theirEmotion {
+    if ([theirEmotion isEqualToString:@"any way!"]) {
+        [self findChatWithAnyOtherEmotionForMyEmotion];
+        return;
+    }
     
     Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:theirEmotion];
     
