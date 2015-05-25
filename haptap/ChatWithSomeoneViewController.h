@@ -13,12 +13,10 @@
 
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 
+@property (strong, nonatomic) IBOutlet UILabel *whiteBackground;
 - (IBAction)showTipsButton:(id)sender;
 
-@property (strong, nonatomic) IBOutlet UILabel *tipLabelOne;
-@property (strong, nonatomic) IBOutlet UILabel *tipLabelTwo;
-@property (strong, nonatomic) IBOutlet UILabel *tipLabelThree;
-@property (strong, nonatomic) IBOutlet UILabel *tipLabelFour;
+@property (strong, nonatomic) IBOutlet UIView *tipsWrapper;
 
 - (IBAction)hideTipsButton:(id)sender;
 

@@ -8,31 +8,36 @@
 
 #import "ChatWithSomeoneViewController.h"
 
+#import <Firebase/Firebase.h>
+#import <Parse/Parse.h>
+
+#import "ChatViewController.h"
+
+#define FIREBASE_ROOT (@"https://haptap.firebaseIO.com/")
+
 @interface ChatWithSomeoneViewController ()
+
+@property (nonatomic, strong) NSString *firebase_path; // "chats/1234234324"  or  "global_chat"
+@property (nonatomic, strong) NSString *chatTitle;
+
+@property (nonatomic, strong) NSArray *pickerData;
 
 @end
 
 @implementation ChatWithSomeoneViewController
-
-{
-    NSArray *_pickerData;
-}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     // Do any additional setup after loading the view.
     // Initialize Data
-    _pickerData = @[@"loving", @"happy", @"excited", @"amused", @"any way!", @"confused", @"anxious", @"annoyed", @"angry", @"sad"];
+    self.pickerData = @[@"loving", @"happy", @"excited", @"amused", @"any way!", @"confused", @"anxious", @"annoyed", @"angry", @"sad"];
     [self.picker selectRow:4 inComponent:0 animated:NO];
     [self.picker reloadAllComponents];
+    [self.tipsWrapper setHidden:YES];
+    [self.hideTipsOutlet setHidden:YES];
     
     //
-    [self.tipLabelOne setHidden:YES];
-    [self.tipLabelTwo setHidden:YES];
-    [self.tipLabelThree setHidden:YES];
-    [self.tipLabelFour setHidden:YES];
-    [self.hideTipsOutlet setHidden:YES];
 
 }
 
@@ -46,12 +51,12 @@
 // The number of rows of data
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return _pickerData.count;
+    return self.pickerData.count;
 }
 
 // The data to return for the row and component (column) that's being passed in
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    return _pickerData[row];
+    return self.pickerData[row];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -70,22 +75,95 @@
 */
 
 - (IBAction)showTipsButton:(id)sender {
-    [self.tipLabelOne setHidden:NO];
-    [self.tipLabelTwo setHidden:NO];
-    [self.tipLabelThree setHidden:NO];
-    [self.tipLabelFour setHidden:NO];
+    [self.tipsWrapper setHidden:NO];
     [self.hideTipsOutlet setHidden:NO];
 }
 - (IBAction)hideTipsButton:(id)sender {
-    [self.tipLabelOne setHidden:YES];
-    [self.tipLabelTwo setHidden:YES];
-    [self.tipLabelThree setHidden:YES];
-    [self.tipLabelFour setHidden:YES];
+    [self.tipsWrapper setHidden:YES];
     [self.hideTipsOutlet setHidden:YES];
+    
 }
 - (IBAction)chatWithEveryoneButton:(id)sender {
+    self.chatTitle = @"Global Chat";
+    self.firebase_path = @"global_chat";
+    [self performSegueWithIdentifier:@"ChatRoomSegue" sender:self];
+//    [self.navigationController performSegueWithIdentifier:@"ChatRoomSegue" sender:self];
 }
 
 - (IBAction)findMeSomeoneButton:(id)sender {
+    NSString *theirEmotion = [self.pickerData objectAtIndex:[self.picker selectedRowInComponent:0]];
+    
+    // TODO: change any way to your real emotion
+    [self findChatWithEmotion:theirEmotion myEmotion:@"happy"];
+    
+    self.chatTitle = @"Chat With Someone";
 }
+
+- (void)initiateNewChatWithFirebaseUser:(FDataSnapshot *)user {
+    
+    Firebase *newChat = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"chats"] childByAutoId];
+    
+    NSString *introMsg = [NSString stringWithFormat:@"%@, meet %@. %@, meet %@.", [PFUser currentUser].username, user.value[@"username"], user.value[@"username"], [PFUser currentUser].username];
+    newChat.value = @{@"msg0" : @{
+                              @"msg" : introMsg,
+                              @"user" : @"HapTap"
+                              }
+                      };
+    
+    NSDictionary *dict = @{ @"chat": newChat.key ,
+                            @"username2" : [PFUser currentUser].username
+                            };
+
+    [user.ref updateChildValues:dict];
+    
+    self.chatTitle = [NSString stringWithFormat:@"Chat with %@",user.value[@"username"]];
+    self.firebase_path = [NSString stringWithFormat:@"chats/%@", newChat.key];
+    [self performSegueWithIdentifier:@"ChatRoomSegue" sender:self];
+}
+
+- (void)createWaitingFirebaseUserWithEmotion:(NSString *)emotion lookingForEmotion:(NSString *)lookingForEmotion {
+    Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:emotion];
+    Firebase *newWaitingUser = [emotionFirebase childByAutoId];
+    newWaitingUser.value = @{
+                             @"emotion" : lookingForEmotion,
+                             @"username" : [PFUser currentUser].username
+                             };
+    [newWaitingUser observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        NSString *chatPath = snapshot.value[@"chat"];
+        if ([chatPath length]) {
+            self.chatTitle = [NSString stringWithFormat:@"Chat with %@",snapshot.value[@"username2"]];
+            self.firebase_path = [NSString stringWithFormat:@"chats/%@", chatPath];
+            [self performSegueWithIdentifier:@"ChatRoomSegue" sender:self];
+        }
+    }];
+}
+
+- (void)findChatWithEmotion:(NSString *)theirEmotion myEmotion:(NSString *)myEmotion {
+    Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:theirEmotion];
+    
+    [emotionFirebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+        for (FDataSnapshot *user in snapshot.children) {
+            if ([user.value[@"emotion"] isEqualToString:myEmotion] || [user.value[@"emotion"] isEqualToString:@"any"]) {
+                if ([user.value[@"chat"] length]) {
+                    continue;
+                }
+                [self initiateNewChatWithFirebaseUser:user];
+                return;
+            }
+        }
+        [self createWaitingFirebaseUserWithEmotion:myEmotion lookingForEmotion:theirEmotion];
+    }];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    // Make sure your segue name in storyboard is the same as this line
+    if ([[segue identifier] isEqualToString:@"ChatRoomSegue"])
+    {
+        // Get reference to the destination view controller
+        ChatViewController *vc = [segue destinationViewController];
+        vc.chatTitle = self.chatTitle;
+        vc.firebase_path = self.firebase_path;
+    }
+}
+
 @end

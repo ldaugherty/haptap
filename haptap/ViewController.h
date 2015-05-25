@@ -15,6 +15,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *howAreYouLabel;
 
 - (IBAction)submitEmotionButton:(id)sender;
+@property (strong, nonatomic) IBOutlet UILabel *oncePerHourLabel;
 
 //slider
 @property (strong, nonatomic) IBOutlet UISlider *slider;

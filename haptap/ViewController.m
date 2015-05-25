@@ -118,6 +118,7 @@
     self.differentEmotionLabel.hidden = YES;
     self.emojiImageUp.hidden = YES;
     [self.emojiImageUp removeFromSuperview];
+   
 }
 
 // enter all possible slider values & assign thumb image & label text with emotion
@@ -208,6 +209,7 @@
     [self.goToChatWithSomeoneLabel setHidden:NO];
     [self.reasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
+     self.oncePerHourLabel.hidden = NO;
 }
 - (IBAction)submitReasonButton:(id)sender {
     [self.reasonTextField setHidden:YES];
@@ -217,6 +219,8 @@
     [self.reasonLabel setHidden:YES];
     [self.submitReasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
+ self.oncePerHourLabel.hidden = NO;
+    [self.reasonTextField resignFirstResponder];
    
 }
 
@@ -235,7 +239,7 @@
     [self.goToChatWithSomeoneLabel setHidden:NO];
     [self.goToMyTrendsPageLabel setHidden:NO];
     [self.thankYouLabel setHidden:YES];
-    
+     self.oncePerHourLabel.hidden = NO;
 }
 
 - (IBAction)neutralButton:(id)sender {

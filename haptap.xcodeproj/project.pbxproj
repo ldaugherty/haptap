@@ -11,7 +11,7 @@
 		439B3AAC1B0D79BE000BF4C7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAB1B0D79BE000BF4C7 /* Firebase.framework */; };
 		439B3AAE1B0D79E7000BF4C7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAD1B0D79E7000BF4C7 /* libicucore.dylib */; };
 		439B3AB01B0D79F4000BF4C7 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAF1B0D79F4000BF4C7 /* libc++.dylib */; };
-		439B3AE81B0D8348000BF4C7 /* GlobalChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439B3AE71B0D8348000BF4C7 /* GlobalChatViewController.m */; };
+		439B3AE81B0D8348000BF4C7 /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 439B3AE71B0D8348000BF4C7 /* ChatViewController.m */; };
 		439C75CC1B07A33F008E1869 /* smile.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 439C75CB1B07A33F008E1869 /* smile.jpg */; };
 		439C75CE1B07E51B008E1869 /* imageedit_13_8830082453.gif in Resources */ = {isa = PBXBuildFile; fileRef = 439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */; };
 		43BBC1D21AEEFF6F00ECE4D5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BBC1D11AEEFF6F00ECE4D5 /* main.m */; };
@@ -58,8 +58,8 @@
 		439B3AAB1B0D79BE000BF4C7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		439B3AAD1B0D79E7000BF4C7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
 		439B3AAF1B0D79F4000BF4C7 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
-		439B3AE61B0D8348000BF4C7 /* GlobalChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalChatViewController.h; sourceTree = "<group>"; };
-		439B3AE71B0D8348000BF4C7 /* GlobalChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalChatViewController.m; sourceTree = "<group>"; };
+		439B3AE61B0D8348000BF4C7 /* ChatViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		439B3AE71B0D8348000BF4C7 /* ChatViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
 		439C75CB1B07A33F008E1869 /* smile.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = smile.jpg; sourceTree = "<group>"; };
 		439C75CD1B07E51B008E1869 /* imageedit_13_8830082453.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = imageedit_13_8830082453.gif; sourceTree = "<group>"; };
 		43BBC1CC1AEEFF6F00ECE4D5 /* haptap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = haptap.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -167,8 +167,8 @@
 				43D43CDC1B06B8F200016BB5 /* ChatWithSomeoneViewController.h */,
 				43D43CDD1B06B8F200016BB5 /* ChatWithSomeoneViewController.m */,
 				43BBC1D91AEEFF6F00ECE4D5 /* Main.storyboard */,
-				439B3AE61B0D8348000BF4C7 /* GlobalChatViewController.h */,
-				439B3AE71B0D8348000BF4C7 /* GlobalChatViewController.m */,
+				439B3AE61B0D8348000BF4C7 /* ChatViewController.h */,
+				439B3AE71B0D8348000BF4C7 /* ChatViewController.m */,
 				43D43CD91B06AF4800016BB5 /* ACTUALMyTrendsViewController.h */,
 				43D43CDA1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m */,
 				43BE0DFB1AFE89A000B9B2BC /* SignUpViewController.h */,
@@ -343,7 +343,7 @@
 			files = (
 				43BBC1D81AEEFF6F00ECE4D5 /* ViewController.m in Sources */,
 				43BE0DFD1AFE89A000B9B2BC /* SignUpViewController.m in Sources */,
-				439B3AE81B0D8348000BF4C7 /* GlobalChatViewController.m in Sources */,
+				439B3AE81B0D8348000BF4C7 /* ChatViewController.m in Sources */,
 				43D43CDE1B06B8F200016BB5 /* ChatWithSomeoneViewController.m in Sources */,
 				43BE0DFA1AFE897F00B9B2BC /* LogInViewController.m in Sources */,
 				43BBC1D51AEEFF6F00ECE4D5 /* AppDelegate.m in Sources */,

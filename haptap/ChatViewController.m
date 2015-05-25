@@ -6,7 +6,7 @@
 //  Copyright (c) 2015 Lucy Daugherty. All rights reserved.
 //
 
-#import "GlobalChatViewController.h"
+#import "ChatViewController.h"
 #import <Firebase/Firebase.h>
 #import <Parse/Parse.h>
 
@@ -17,7 +17,7 @@ green:((float)((rgbValue & 0x00FF00) >>  8))/255.0 \
 blue:((float)((rgbValue & 0x0000FF) >>  0))/255.0 \
 alpha:1.0]
 
-@interface GlobalChatViewController ()
+@interface ChatViewController ()
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *textWrapperView;
@@ -29,15 +29,17 @@ alpha:1.0]
 @end
 
 
-@implementation GlobalChatViewController
+@implementation ChatViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
-
-    self.chatFirebase = [[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"global_chat"];
+    self.navigationItem.title = self.chatTitle;
+    
+    self.chatFirebase = [[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:self.firebase_path];
+    
     self.messages = [[NSMutableArray alloc] init];
     [self.chatFirebase observeEventType:FEventTypeChildAdded withBlock:^(FDataSnapshot *snapshot) {
         [self.messages addObject:snapshot];
