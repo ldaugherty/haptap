@@ -102,11 +102,19 @@
     self.chatTitle = @"Chat With Someone";
 }
 
+
+
 - (void) showSearchingIndicator {
+        self.view.alpha = 0.50f;
         self.searchingActivityView = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
-        self.searchingActivityView.labelText = @"Searching...";
-        self.searchingActivityView.detailsLabelText = @"Tap to cancel";
+        self.searchingActivityView.labelText = @"Searching for a buddy...";
+        self.searchingActivityView.detailsLabelText = @"Tap anywhere to cancel";
         [self.searchingActivityView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hudWasCancelled)]];
+}
+
+- (void)hideSearchingIndicator {
+    [self.searchingActivityView hide:YES];
+    self.view.alpha = 1.f;
 }
 
 - (void)deleteWaitingFirebaseUser {
@@ -116,7 +124,7 @@
 
 - (void)hudWasCancelled {
     [self deleteWaitingFirebaseUser];
-    [self.searchingActivityView hide:YES];
+    [self hideSearchingIndicator];
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
@@ -220,7 +228,7 @@
         ChatViewController *vc = [segue destinationViewController];
         vc.chatTitle = self.chatTitle;
         vc.firebase_path = self.firebase_path;
-        [self.searchingActivityView hide:YES];
+        [self hideSearchingIndicator];
     }
 }
 
