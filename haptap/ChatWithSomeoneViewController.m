@@ -43,8 +43,7 @@
 
 }
 
-
-
+#pragma mark - Picker View
 // The number of columns of data
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -62,20 +61,7 @@
     return self.pickerData[row];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+#pragma mark - IBActions
 
 - (IBAction)showTipsButton:(id)sender {
     [self.tipsWrapper setHidden:NO];
@@ -102,7 +88,7 @@
     self.chatTitle = @"Chat With Someone";
 }
 
-
+#pragma mark - Searching Indicator
 
 - (void) showSearchingIndicator {
         self.view.alpha = 0.50f;
@@ -117,18 +103,16 @@
     self.view.alpha = 1.f;
 }
 
-- (void)deleteWaitingFirebaseUser {
-    [self.waitingUserFirebase removeAllObservers];
-    [self.waitingUserFirebase removeValue];
-}
-
 - (void)hudWasCancelled {
     [self deleteWaitingFirebaseUser];
     [self hideSearchingIndicator];
 }
 
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    // Handle Cancel pressed
+#pragma mark - Firebase
+
+- (void)deleteWaitingFirebaseUser {
+    [self.waitingUserFirebase removeAllObservers];
+    [self.waitingUserFirebase removeValue];
 }
 
 - (void)initiateNewChatWithFirebaseUser:(FDataSnapshot *)user {
@@ -213,6 +197,8 @@
         [self createWaitingFirebaseUserWithEmotion:self.myCurrentEmotion lookingForEmotion:theirEmotion];
     }];
 }
+
+#pragma mark - view stuffs
 
 - (void)viewWillDisappear:(BOOL)animated {
     [self deleteWaitingFirebaseUser];
