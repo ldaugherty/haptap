@@ -211,7 +211,7 @@
                                         <rect key="frame" x="8" y="12" width="291" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits" returnKeyType="done"/>
+                                        <textInputTraits key="textInputTraits" returnKeyType="send"/>
                                         <connections>
                                             <outlet property="delegate" destination="Eaa-QP-UMM" id="bKJ-VW-CR2"/>
                                         </connections>
