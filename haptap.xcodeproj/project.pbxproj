@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		43694B431B13FF5F00779368 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 43694B421B13FF5F00779368 /* MBProgressHUD.m */; };
 		439B3AAA1B0AB14A000BF4C7 /* Drawing (5).png in Resources */ = {isa = PBXBuildFile; fileRef = 439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */; };
 		439B3AAC1B0D79BE000BF4C7 /* Firebase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAB1B0D79BE000BF4C7 /* Firebase.framework */; };
 		439B3AAE1B0D79E7000BF4C7 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 439B3AAD1B0D79E7000BF4C7 /* libicucore.dylib */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		43694B411B13FF5F00779368 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		43694B421B13FF5F00779368 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
 		439B3AA91B0AB14A000BF4C7 /* Drawing (5).png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Drawing (5).png"; sourceTree = "<group>"; };
 		439B3AAB1B0D79BE000BF4C7 /* Firebase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Firebase.framework; sourceTree = "<group>"; };
 		439B3AAD1B0D79E7000BF4C7 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
@@ -160,6 +163,8 @@
 		43BBC1CE1AEEFF6F00ECE4D5 /* haptap */ = {
 			isa = PBXGroup;
 			children = (
+				43694B411B13FF5F00779368 /* MBProgressHUD.h */,
+				43694B421B13FF5F00779368 /* MBProgressHUD.m */,
 				43BBC1D31AEEFF6F00ECE4D5 /* AppDelegate.h */,
 				43BBC1D41AEEFF6F00ECE4D5 /* AppDelegate.m */,
 				43BBC1D61AEEFF6F00ECE4D5 /* ViewController.h */,
@@ -345,6 +350,7 @@
 				43BE0DFD1AFE89A000B9B2BC /* SignUpViewController.m in Sources */,
 				439B3AE81B0D8348000BF4C7 /* ChatViewController.m in Sources */,
 				43D43CDE1B06B8F200016BB5 /* ChatWithSomeoneViewController.m in Sources */,
+				43694B431B13FF5F00779368 /* MBProgressHUD.m in Sources */,
 				43BE0DFA1AFE897F00B9B2BC /* LogInViewController.m in Sources */,
 				43BBC1D51AEEFF6F00ECE4D5 /* AppDelegate.m in Sources */,
 				43D43CDB1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m in Sources */,
@@ -481,12 +487,18 @@
 					"$(PROJECT_DIR)/haptap",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+				);
 				INFOPLIST_FILE = haptap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Debug;
 		};
@@ -501,12 +513,18 @@
 					"$(PROJECT_DIR)/haptap",
 					"$(PROJECT_DIR)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include",
+				);
 				INFOPLIST_FILE = haptap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				USER_HEADER_SEARCH_PATHS = "";
 			};
 			name = Release;
 		};

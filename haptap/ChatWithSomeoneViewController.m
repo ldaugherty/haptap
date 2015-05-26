@@ -7,9 +7,10 @@
 //
 
 #import "ChatWithSomeoneViewController.h"
-
 #import <Firebase/Firebase.h>
 #import <Parse/Parse.h>
+
+#import "MBProgressHUD.h"
 
 #import "ChatViewController.h"
 
@@ -19,8 +20,9 @@
 
 @property (nonatomic, strong) NSString *firebase_path; // "chats/1234234324"  or  "global_chat"
 @property (nonatomic, strong) NSString *chatTitle;
-
+@property (nonatomic, strong) MBProgressHUD *searchingActivityView;
 @property (nonatomic, strong) NSArray *pickerData;
+@property (nonatomic, strong) Firebase *waitingUserFirebase;
 
 @end
 
@@ -40,6 +42,7 @@
     //
 
 }
+
 
 
 // The number of columns of data
@@ -99,6 +102,27 @@
     self.chatTitle = @"Chat With Someone";
 }
 
+- (void) showSearchingIndicator {
+        self.searchingActivityView = [MBProgressHUD showHUDAddedTo:self.navigationController.view animated:YES];
+        self.searchingActivityView.labelText = @"Searching...";
+        self.searchingActivityView.detailsLabelText = @"Tap to cancel";
+        [self.searchingActivityView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hudWasCancelled)]];
+}
+
+- (void)deleteWaitingFirebaseUser {
+    [self.waitingUserFirebase removeAllObservers];
+    [self.waitingUserFirebase removeValue];
+}
+
+- (void)hudWasCancelled {
+    [self deleteWaitingFirebaseUser];
+    [self.searchingActivityView hide:YES];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    // Handle Cancel pressed
+}
+
 - (void)initiateNewChatWithFirebaseUser:(FDataSnapshot *)user {
     
     Firebase *newChat = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"chats"] childByAutoId];
@@ -123,18 +147,17 @@
 
 - (void)createWaitingFirebaseUserWithEmotion:(NSString *)emotion lookingForEmotion:(NSString *)lookingForEmotion {
     Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:emotion];
-    Firebase *newWaitingUser = [emotionFirebase childByAutoId];
-    newWaitingUser.value = @{
+    self.waitingUserFirebase = [emotionFirebase childByAutoId];
+    self.waitingUserFirebase.value = @{
                              @"emotion_wanted" : lookingForEmotion,
                              @"username" : [PFUser currentUser].username
                              };
-    [newWaitingUser observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
+    [self.waitingUserFirebase observeEventType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         if (!snapshot.exists) return;
         NSString *chatPath = snapshot.value[@"chat"];
         if ([chatPath length]) {
             self.chatTitle = [NSString stringWithFormat:@"Chat with %@",snapshot.value[@"username2"]];
             self.firebase_path = [NSString stringWithFormat:@"chats/%@", chatPath];
-            [snapshot.ref removeValue]; // delete so the list doesnt get huge.
             [self performSegueWithIdentifier:@"ChatRoomSegue" sender:self];
         }
     }];
@@ -164,6 +187,11 @@
         return;
     }
     
+    if ([theirEmotion isEqualToString:@"any way!"]) {
+     [self findChatWithAnyOtherEmotionForMyEmotion];
+        return;
+    }
+
     Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:theirEmotion];
     
     [emotionFirebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
@@ -180,6 +208,10 @@
     }];
 }
 
+- (void)viewWillDisappear:(BOOL)animated {
+    [self deleteWaitingFirebaseUser];
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Make sure your segue name in storyboard is the same as this line
     if ([[segue identifier] isEqualToString:@"ChatRoomSegue"])
@@ -188,6 +220,7 @@
         ChatViewController *vc = [segue destinationViewController];
         vc.chatTitle = self.chatTitle;
         vc.firebase_path = self.firebase_path;
+        [self.searchingActivityView hide:YES];
     }
 }
 
