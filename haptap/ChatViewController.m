@@ -33,6 +33,7 @@ alpha:1.0]
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.keyboardHeight = 0;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -73,15 +74,17 @@ alpha:1.0]
 - (void)moveControls:(NSNotification*)notification up:(BOOL)up
 {
     NSDictionary* userInfo = [notification userInfo];
-    CGFloat kbHeight = [[userInfo objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size.height;
-
-    kbHeight *= up ? -1 : 1;
+    CGFloat kbHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    CGFloat delta = kbHeight - self.keyboardHeight;
+    self.keyboardHeight = kbHeight;
+    
+    delta *= up ? -1 : 1;
     
     CGRect oldframe = self.textWrapperView.frame;
-    oldframe.origin.y += kbHeight;
+    oldframe.origin.y += delta;
     
     CGRect tableViewFrame = self.tableView.frame;
-    tableViewFrame.size.height += kbHeight;
+    tableViewFrame.size.height += delta;
     
     NSTimeInterval duration = [[userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey] doubleValue];
     UIViewAnimationCurve animationCurve = [[userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey] integerValue];

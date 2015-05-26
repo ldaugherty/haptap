@@ -174,10 +174,8 @@
 }
 
 - (void)findChatWithEmotion:(NSString *)theirEmotion {
-    if ([theirEmotion isEqualToString:@"any way!"]) {
-        [self findChatWithAnyOtherEmotionForMyEmotion];
-        return;
-    }
+ 
+    [self showSearchingIndicator];
     
     if ([theirEmotion isEqualToString:@"any way!"]) {
      [self findChatWithAnyOtherEmotionForMyEmotion];
