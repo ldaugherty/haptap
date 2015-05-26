@@ -55,7 +55,8 @@ alpha:1.0]
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    [textField resignFirstResponder];
+
+    [self sendMessage:nil];
     return NO;
 }
 
