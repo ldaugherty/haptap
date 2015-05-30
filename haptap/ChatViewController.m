@@ -163,6 +163,14 @@ alpha:1.0]
     
 }
 
+- (void)didMoveToParentViewController:(UIViewController *)parent
+{
+    
+    // parent is nil if this view controller was removed
+}
+
+
+
 /*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

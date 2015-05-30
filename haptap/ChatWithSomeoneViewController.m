@@ -135,6 +135,7 @@
     self.chatTitle = [NSString stringWithFormat:@"Chat with %@",user.value[@"username"]];
     self.firebase_path = [NSString stringWithFormat:@"chats/%@", newChat.key];
     [self performSegueWithIdentifier:@"ChatRoomSegue" sender:self];
+    
 }
 
 - (void)createWaitingFirebaseUserWithEmotion:(NSString *)emotion lookingForEmotion:(NSString *)lookingForEmotion {
@@ -193,10 +194,14 @@
                 [self initiateNewChatWithFirebaseUser:user];
                 return;
             }
+            
+           
         }
         [self createWaitingFirebaseUserWithEmotion:self.myCurrentEmotion lookingForEmotion:theirEmotion];
     }];
 }
+
+
 
 #pragma mark - view stuffs
 

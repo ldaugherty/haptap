@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *emotionNames = @[@"sad", @"angry", @"annoyed", @"anxious", @"confused", @"amused", @"excited", @"happy", @"loving"];
+    NSArray *emotionNames = @[@"sad", @"angry", @"annoyed", @"anxious", @"confused", @"amused", @"excited", @"happy", @"loving", @"neutral"];
     
     self.emotions = [NSMutableArray array];
     
@@ -62,7 +62,7 @@
     [self.reasonLabel setHidden:YES];
     [self.actuallyNoReasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
-    self.submitEmotionLabel.hidden = YES;
+    [self.submitEmotionLabel setHidden:YES];
    }
 
 - (Emotion *)emotionWithTitle:(NSString *)title image:(UIImage *)image {
@@ -244,6 +244,8 @@
 }
 
 - (IBAction)neutralButton:(id)sender {
+    
+    
     self.gridView.hidden = YES;
     self.neutralLabel.hidden = YES;
     self.howAreYouFeelingLabel.hidden = YES;
@@ -251,6 +253,7 @@
     self.goToChatWithSomeoneLabel.hidden = NO;
     self.goToMyTrendsPageLabel.hidden = NO;
     self.howAreYouLabel.hidden = YES;
+    
 }
 
 
@@ -333,7 +336,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"viewControllerToChatWithSomeone"]) {
         ChatWithSomeoneViewController *vc = [segue destinationViewController];
-        vc.myCurrentEmotion = self.selectedEmotion.title;
+        
+    //for neutral
+        if (self.selectedEmotion.title!= nil) {
+            vc.myCurrentEmotion = self.selectedEmotion.title;
+        }
+        else {
+            vc.myCurrentEmotion = @"neutral";
+        }
     }
 }
 
