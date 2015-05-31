@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qSB-je-tAj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="S5G-fM-4wv">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
@@ -149,6 +149,9 @@
                         </subviews>
                         <color key="backgroundColor" red="0.47832006640000002" green="0.75457751920000005" blue="0.90461253159999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Chat" image="nil" id="kZo-RU-y8c">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
                     <navigationItem key="navigationItem" title="Chat With Someone" id="Jun-cX-7rP"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -160,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrH-3d-C0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667.5" y="1151.5"/>
+            <point key="canvasLocation" x="223.5" y="-146.5"/>
         </scene>
         <!--Chat Globally-->
         <scene sceneID="LtV-hn-tHw">
@@ -254,7 +257,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QR8-F8-ida" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="667.5" y="2009.5"/>
+            <point key="canvasLocation" x="223.5" y="649.5"/>
         </scene>
         <!--My Trends-->
         <scene sceneID="xf1-tS-cbj">
@@ -265,6 +268,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.47832006640000002" green="0.75457751920000005" blue="0.90461253159999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Trends" image="nil" id="zIe-VD-LEu"/>
                     <navigationItem key="navigationItem" title="My Trends" id="aiR-mt-66L">
                         <barButtonItem key="backBarButtonItem" title="back" id="zd6-ZF-gAp"/>
                     </navigationItem>
@@ -272,7 +276,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnf-PI-bP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1070.5" y="1151.5"/>
+            <point key="canvasLocation" x="678.5" y="-146.5"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="XNJ-Al-9aL">
+            <objects>
+                <viewController title="Settings" id="5f3-Xc-3bn" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hAE-QJ-DIj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Settings" image="nil" id="SZ7-Sl-dyc"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3FK-HO-9Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1105.5" y="-140.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="qYX-lj-ZtO">
+            <objects>
+                <tabBarController id="S5G-fM-4wv" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="2Jv-Kr-EDk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="viewControllers" id="ewM-Hb-hxe"/>
+                        <segue destination="vtO-OP-e2k" kind="relationship" relationship="viewControllers" id="keV-JL-8mg"/>
+                        <segue destination="t1d-XV-3uQ" kind="relationship" relationship="viewControllers" id="uCl-jE-OTO"/>
+                        <segue destination="5f3-Xc-3bn" kind="relationship" relationship="viewControllers" id="DWR-ft-bSE"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2P7-sR-ZBA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-622" y="-175"/>
         </scene>
         <!--Haptap-->
         <scene sceneID="ufC-wZ-h7g">
@@ -551,6 +592,7 @@
                         </subviews>
                         <color key="backgroundColor" red="0.47832006640000002" green="0.75457751920000005" blue="0.90461253159999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="JZ1-Pd-LEy"/>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Haptap" id="odD-cQ-hNh"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -583,7 +625,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="108.5" y="-146.5"/>
+            <point key="canvasLocation" x="-223.5" y="-146.5"/>
         </scene>
         <!--Suggestions-->
         <scene sceneID="TI8-Sh-hsO">
@@ -621,7 +663,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRW-uv-wfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9.8666666666666671" y="1151.6199999999999"/>
+            <point key="canvasLocation" x="-498.5" y="1435.5"/>
         </scene>
         <!--Questions-->
         <scene sceneID="P3W-bJ-Tsk">
@@ -711,7 +753,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ai-lw-pDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="265.86666666666667" y="1151.6199999999999"/>
+            <point key="canvasLocation" x="-45.5" y="1435.5"/>
         </scene>
         <!--logInViewController-->
         <scene sceneID="slM-9o-vcY">
@@ -805,7 +847,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Vg-tp-71y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="737.86666666666667" y="327.07333333333332"/>
+            <point key="canvasLocation" x="1703.5" y="-89.5"/>
         </scene>
         <!--signUpViewController-->
         <scene sceneID="J6E-8l-AlO">
@@ -899,7 +941,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5l-SA-nEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1023.1999999999999" y="327.07333333333332"/>
+            <point key="canvasLocation" x="2164.5" y="-89.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="D01-B0-jX3">
@@ -920,11 +962,12 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVl-gs-b9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-326.5" y="-146.5"/>
+            <point key="canvasLocation" x="-1202.5" y="-146.5"/>
         </scene>
     </scenes>
     <resources>
         <image name="imageedit_13_8830082453.gif" width="585" height="585"/>
+        <image name="nil" width="30" height="30"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
@@ -932,6 +975,9 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="uCl-jE-OTO"/>
+        <segue reference="ewM-Hb-hxe"/>
+        <segue reference="keV-JL-8mg"/>
         <segue reference="ip6-rl-WDd"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.21455012204638169" green="0.23802196424146427" blue="1" alpha="1" colorSpace="calibratedRGB"/>
