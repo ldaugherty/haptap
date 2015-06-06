@@ -54,5 +54,12 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
 @property (strong, nonatomic) IBOutlet UIButton *differentEmotionLabel;
 
+//tabs
+@property (strong, nonatomic) IBOutlet UITabBarItem *trendsTab;
+@property (strong, nonatomic) IBOutlet UITabBarItem *chatTab;
+@property (strong, nonatomic) IBOutlet UITabBarItem *moreTab;
+@property (strong, nonatomic) IBOutlet UITabBarItem *homeTab;
+
+
 @end
 

@@ -57,7 +57,7 @@
     [self.yesReasonLabel setHidden:YES];
     [self.submitReasonLabel setHidden:YES];
     [self.goToMyTrendsPageLabel setHidden:YES];
- //   [self.goToChatWithSomeoneLabel setHidden:YES];
+    [self.goToChatWithSomeoneLabel setHidden:YES];
     [self.reasonTextField setHidden:YES];
     [self.reasonLabel setHidden:YES];
     [self.actuallyNoReasonLabel setHidden:YES];
@@ -228,13 +228,7 @@
    
 }
 
-- (IBAction)goToMyTrendsPageButton:(id)sender {
-    
-}
 
-- (IBAction)goToChatWithSomeoneButton:(id)sender {
-    
-}
 - (IBAction)actuallyNoReasonButton:(id)sender {
     [self.reasonTextField setHidden:YES];
     [self.submitReasonLabel setHidden:YES];
@@ -335,8 +329,12 @@
     
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([[segue identifier] isEqualToString:@"viewControllerToChatWithSomeone"]) {
+        
+        
+        
         ChatWithSomeoneViewController *vc = [segue destinationViewController];
         
         if ([sender isEqual:self.actuallyNoReasonLabel]) {

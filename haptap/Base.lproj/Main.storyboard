@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrH-3d-C0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="275.5" y="-290.5"/>
+            <point key="canvasLocation" x="223.5" y="-146.5"/>
         </scene>
         <!--Chat Globally-->
         <scene sceneID="LtV-hn-tHw">
@@ -276,7 +276,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnf-PI-bP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="678.5" y="-146.5"/>
+            <point key="canvasLocation" x="662.5" y="-130.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="XNJ-Al-9aL">
@@ -292,7 +292,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FK-HO-9Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1105.5" y="-140.5"/>
+            <point key="canvasLocation" x="1121.5" y="-122.5"/>
         </scene>
         <!--Haptap-->
         <scene sceneID="ufC-wZ-h7g">
@@ -371,7 +371,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Iy-2R-GyG">
-                                <rect key="frame" x="94" y="508" width="192" height="49"/>
+                                <rect key="frame" x="94" y="372" width="192" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
@@ -521,27 +521,6 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to collect more accurate data, you can only enter how you're feeling once per hour!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="auZ-vt-ZeO">
-                                <rect key="frame" x="79" y="189" width="216" height="138"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.002631899115474044" green="0.0" blue="0.039772727272727293" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.96485988847642135" green="0.97258968426525727" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <size key="shadowOffset" width="0.0" height="0.0"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="GfM-Px-dHp">
-                                <rect key="frame" x="130" y="482" width="114" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="16"/>
-                                <state key="normal" title="I feel neutral.">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="neutralButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vD8-g5-wzP"/>
-                                </connections>
-                            </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="vTm-Cr-nxc">
                                 <rect key="frame" x="39" y="200" width="300" height="258"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -568,6 +547,38 @@
                                     <outlet property="delegate" destination="vXZ-lx-hvc" id="Kbw-W1-2lw"/>
                                 </connections>
                             </collectionView>
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="In order to collect more accurate data, you can only enter how you're feeling once per hour!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="auZ-vt-ZeO">
+                                <rect key="frame" x="79" y="189" width="216" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.002631899115474044" green="0.0" blue="0.039772727272727293" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                                <color key="shadowColor" red="0.96485988847642135" green="0.97258968426525727" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <size key="shadowOffset" width="0.0" height="0.0"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="GfM-Px-dHp">
+                                <rect key="frame" x="130" y="482" width="114" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="SinhalaSangamMN" family="Sinhala Sangam MN" pointSize="16"/>
+                                <state key="normal" title="I feel neutral.">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="neutralButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vD8-g5-wzP"/>
+                                </connections>
+                            </button>
+                            <tabBar contentMode="scaleToFill" id="mxa-ws-P24">
+                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Home" id="xk3-Cl-ILs"/>
+                                    <tabBarItem title="Trends" id="wUC-LR-msT"/>
+                                    <tabBarItem title="Chat" id="Xhv-4H-ZKu"/>
+                                    <tabBarItem systemItem="more" id="Sdb-15-Rzh"/>
+                                </items>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="0.47832006640000002" green="0.75457751920000005" blue="0.90461253159999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -580,13 +591,16 @@
                     <connections>
                         <outlet property="actuallyNoReasonLabel" destination="YOR-Bq-0YA" id="mtQ-XU-M1A"/>
                         <outlet property="barelyLabel" destination="MKJ-O2-c6j" id="XUc-30-qZa"/>
+                        <outlet property="chatTab" destination="Xhv-4H-ZKu" id="Ma0-eA-c9d"/>
                         <outlet property="differentEmotionLabel" destination="0h7-Fj-McR" id="hEN-GY-jJS"/>
                         <outlet property="extremelyLabel" destination="fSw-TL-f4s" id="Ykq-g0-v29"/>
                         <outlet property="goToChatWithSomeoneLabel" destination="0Iy-2R-GyG" id="D6I-1i-Y3E"/>
                         <outlet property="goToMyTrendsPageLabel" destination="wQg-cP-efa" id="nIJ-4a-qba"/>
                         <outlet property="gridView" destination="vTm-Cr-nxc" id="xRf-Lz-8Yy"/>
+                        <outlet property="homeTab" destination="xk3-Cl-ILs" id="ARV-Gv-tF4"/>
                         <outlet property="howAreYouFeelingLabel" destination="46T-hU-bKK" id="Ibn-lj-mJ3"/>
                         <outlet property="howAreYouLabel" destination="RD6-hK-AbR" id="lsd-Ir-1lP"/>
+                        <outlet property="moreTab" destination="Sdb-15-Rzh" id="K5h-dE-EG0"/>
                         <outlet property="neutralLabel" destination="GfM-Px-dHp" id="1Kj-jY-b1V"/>
                         <outlet property="noReasonLabel" destination="5B6-0X-5Dk" id="J5r-86-v0n"/>
                         <outlet property="oncePerHourLabel" destination="auZ-vt-ZeO" id="QYL-oH-zTc"/>
@@ -597,6 +611,7 @@
                         <outlet property="submitEmotionLabel" destination="8il-6i-Huq" id="FS6-9w-eKc"/>
                         <outlet property="submitReasonLabel" destination="DRS-ez-24k" id="b6J-Gx-iV2"/>
                         <outlet property="thankYouLabel" destination="aiG-BR-3jg" id="o5o-ap-cXN"/>
+                        <outlet property="trendsTab" destination="wUC-LR-msT" id="rwZ-jk-YPr"/>
                         <outlet property="welcomeLabel" destination="Uhx-4Q-D8e" id="Fxj-Sk-ggW"/>
                         <outlet property="yesReasonLabel" destination="aZJ-re-4y3" id="d6b-Kk-RBU"/>
                         <segue destination="TTC-am-WW6" kind="modal" identifier="loginsegue" id="hCM-qg-iUc"/>
@@ -642,7 +657,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRW-uv-wfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-498.5" y="1435.5"/>
+            <point key="canvasLocation" x="-1042.5" y="1099.5"/>
         </scene>
         <!--Questions-->
         <scene sceneID="P3W-bJ-Tsk">
@@ -732,7 +747,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ai-lw-pDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-45.5" y="1435.5"/>
+            <point key="canvasLocation" x="-565.5" y="1099.5"/>
         </scene>
         <!--logInViewController-->
         <scene sceneID="slM-9o-vcY">
@@ -826,7 +841,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Vg-tp-71y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1703.5" y="-89.5"/>
+            <point key="canvasLocation" x="-232.5" y="1894.5"/>
         </scene>
         <!--signUpViewController-->
         <scene sceneID="J6E-8l-AlO">
@@ -920,13 +935,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5l-SA-nEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2164.5" y="-89.5"/>
+            <point key="canvasLocation" x="244.5" y="1894.5"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Item-->
         <scene sceneID="D01-B0-jX3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qSB-je-tAj" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
+                    <tabBarItem key="tabBarItem" title="Item" id="cTn-S7-XZc"/>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -936,12 +952,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="n3n-Tv-IIV"/>
+                        <segue destination="vXZ-lx-hvc" kind="relationship" relationship="rootViewController" id="aBt-FU-E8x"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVl-gs-b9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1144.5" y="-374.5"/>
+            <point key="canvasLocation" x="-223.5" y="-914.5"/>
         </scene>
     </scenes>
     <resources>
