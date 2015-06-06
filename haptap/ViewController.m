@@ -243,9 +243,7 @@
      self.oncePerHourLabel.hidden = NO;
 }
 
-- (IBAction)neutralButton:(id)sender {
-    
-    
+- (IBAction)neutralButton:(UIButton *)sender {
     self.gridView.hidden = YES;
     self.neutralLabel.hidden = YES;
     self.howAreYouFeelingLabel.hidden = YES;
@@ -253,7 +251,7 @@
     self.goToChatWithSomeoneLabel.hidden = NO;
     self.goToMyTrendsPageLabel.hidden = NO;
     self.howAreYouLabel.hidden = YES;
-    
+    //    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.neutralLabel];
 }
 
 
@@ -337,12 +335,13 @@
     if ([[segue identifier] isEqualToString:@"viewControllerToChatWithSomeone"]) {
         ChatWithSomeoneViewController *vc = [segue destinationViewController];
         
-    //for neutral
         if (self.selectedEmotion.title!= nil) {
             vc.myCurrentEmotion = self.selectedEmotion.title;
+            NSLog(@"%@", vc.myCurrentEmotion);
         }
-        else {
+        else if ([sender isEqual:self.neutralLabel]) {
             vc.myCurrentEmotion = @"neutral";
+            NSLog(@"%@", vc.myCurrentEmotion);
         }
     }
 }

@@ -38,8 +38,7 @@
 - (IBAction)goToChatWithSomeoneButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *howAreYouFeelingLabel;
 - (IBAction)actuallyNoReasonButton:(id)sender;
-- (IBAction)neutralButton:(id)sender;
-
+- (IBAction)neutralButton:(UIButton *)sender;
 
 
 // have to link all buttons as labels all well to hide them on view
