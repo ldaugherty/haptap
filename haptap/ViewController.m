@@ -103,6 +103,7 @@
     self.submitEmotionLabel.hidden = YES;
     self.howAreYouLabel.hidden = NO;
     [self.emojiImageUp removeFromSuperview];
+    self.selectedEmotion.title=nil;
 }
 
 - (IBAction)submitEmotionButton:(id)sender {
@@ -220,7 +221,7 @@
     [self.reasonLabel setHidden:YES];
     [self.submitReasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
- self.oncePerHourLabel.hidden = NO;
+    self.oncePerHourLabel.hidden = NO;
     [self.reasonTextField resignFirstResponder];
    
 }
