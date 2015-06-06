@@ -212,6 +212,7 @@
     [self.reasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
      self.oncePerHourLabel.hidden = NO;
+    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.noReasonLabel];
 }
 - (IBAction)submitReasonButton:(id)sender {
     [self.reasonTextField setHidden:YES];
@@ -223,6 +224,7 @@
     [self.thankYouLabel setHidden:YES];
     self.oncePerHourLabel.hidden = NO;
     [self.reasonTextField resignFirstResponder];
+    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.submitReasonLabel];
    
 }
 
@@ -242,6 +244,7 @@
     [self.goToMyTrendsPageLabel setHidden:NO];
     [self.thankYouLabel setHidden:YES];
      self.oncePerHourLabel.hidden = NO;
+    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.actuallyNoReasonLabel];
 }
 
 - (IBAction)neutralButton:(UIButton *)sender {
@@ -336,7 +339,15 @@
     if ([[segue identifier] isEqualToString:@"viewControllerToChatWithSomeone"]) {
         ChatWithSomeoneViewController *vc = [segue destinationViewController];
         
-        if (self.selectedEmotion.title!= nil) {
+        if ([sender isEqual:self.actuallyNoReasonLabel]) {
+            vc.myCurrentEmotion = self.selectedEmotion.title;
+            NSLog(@"%@", vc.myCurrentEmotion);
+        }
+        else if ([sender isEqual:self.noReasonLabel]) {
+            vc.myCurrentEmotion = self.selectedEmotion.title;
+            NSLog(@"%@", vc.myCurrentEmotion);
+        }
+        else if ([sender isEqual:self.submitReasonLabel]) {
             vc.myCurrentEmotion = self.selectedEmotion.title;
             NSLog(@"%@", vc.myCurrentEmotion);
         }
