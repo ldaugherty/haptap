@@ -80,13 +80,35 @@
 }
 
 - (IBAction)findMeSomeoneButton:(id)sender {
-    NSString *theirEmotion = [self.pickerData objectAtIndex:[self.picker selectedRowInComponent:0]];
+    if (self.myCurrentEmotion != nil) {
+        
+        NSString *theirEmotion = [self.pickerData objectAtIndex:[self.picker selectedRowInComponent:0]];
+        
+        // TODO: change any way to your real emotion
+        
+        [self findChatWithEmotion:theirEmotion];
+        self.chatTitle = @"Chat With Someone";
+    }
     
-    // TODO: change any way to your real emotion
-    [self findChatWithEmotion:theirEmotion];
+    else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Woah" message:@"You have to enter how you're feeling to use this feature!" delegate:self cancelButtonTitle:nil otherButtonTitles:@"Go to home page", @"Cancel", nil];
+        [alert show];
+    }
     
-    self.chatTitle = @"Chat With Someone";
 }
+
+-(void)alertView:(UIAlertView *)alertView willDismissWithButtonIndex:    (NSInteger)buttonIndex
+{
+    if(buttonIndex==1)
+    {
+        //release alert if "Cancel" is pressed
+    }
+    else if(buttonIndex==0)
+    {
+         [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 
 #pragma mark - Searching Indicator
 

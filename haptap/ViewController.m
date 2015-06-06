@@ -57,7 +57,7 @@
     [self.yesReasonLabel setHidden:YES];
     [self.submitReasonLabel setHidden:YES];
     [self.goToMyTrendsPageLabel setHidden:YES];
-    [self.goToChatWithSomeoneLabel setHidden:YES];
+ //   [self.goToChatWithSomeoneLabel setHidden:YES];
     [self.reasonTextField setHidden:YES];
     [self.reasonLabel setHidden:YES];
     [self.actuallyNoReasonLabel setHidden:YES];
@@ -251,7 +251,7 @@
     self.goToChatWithSomeoneLabel.hidden = NO;
     self.goToMyTrendsPageLabel.hidden = NO;
     self.howAreYouLabel.hidden = YES;
-    //    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.neutralLabel];
+    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.neutralLabel];
 }
 
 
@@ -342,6 +342,7 @@
         else if ([sender isEqual:self.neutralLabel]) {
             vc.myCurrentEmotion = @"neutral";
             NSLog(@"%@", vc.myCurrentEmotion);
+        
         }
     }
 }

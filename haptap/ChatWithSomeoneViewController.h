@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <Firebase/Firebase.h>
 
-@interface ChatWithSomeoneViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface ChatWithSomeoneViewController : UIViewController <UIPickerViewDataSource, UIPickerViewDelegate, UIAlertViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIPickerView *picker;
 @property (strong, nonatomic) NSString *myCurrentEmotion;
