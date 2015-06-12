@@ -40,6 +40,8 @@
 		43BE0DFA1AFE897F00B9B2BC /* LogInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BE0DF91AFE897F00B9B2BC /* LogInViewController.m */; };
 		43BE0DFD1AFE89A000B9B2BC /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43BE0DFC1AFE89A000B9B2BC /* SignUpViewController.m */; };
 		43BE0DFF1AFE8E7600B9B2BC /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 43BE0DFE1AFE8E7600B9B2BC /* ParseUI.framework */; };
+		43C640B71B2B61FA00E439D3 /* EmotionDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C640B61B2B61FA00E439D3 /* EmotionDataManager.m */; };
+		43C640BA1B2B624400E439D3 /* Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 43C640B91B2B624400E439D3 /* Emotion.m */; };
 		43D43CDB1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D43CDA1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m */; };
 		43D43CDE1B06B8F200016BB5 /* ChatWithSomeoneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 43D43CDD1B06B8F200016BB5 /* ChatWithSomeoneViewController.m */; };
 /* End PBXBuildFile section */
@@ -98,6 +100,10 @@
 		43BE0DFB1AFE89A000B9B2BC /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		43BE0DFC1AFE89A000B9B2BC /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		43BE0DFE1AFE8E7600B9B2BC /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ParseUI.framework; path = haptap/ParseUI.framework; sourceTree = "<group>"; };
+		43C640B51B2B61FA00E439D3 /* EmotionDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionDataManager.h; sourceTree = "<group>"; };
+		43C640B61B2B61FA00E439D3 /* EmotionDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionDataManager.m; sourceTree = "<group>"; };
+		43C640B81B2B624400E439D3 /* Emotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Emotion.h; sourceTree = "<group>"; };
+		43C640B91B2B624400E439D3 /* Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Emotion.m; sourceTree = "<group>"; };
 		43D43CD91B06AF4800016BB5 /* ACTUALMyTrendsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ACTUALMyTrendsViewController.h; sourceTree = "<group>"; };
 		43D43CDA1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ACTUALMyTrendsViewController.m; sourceTree = "<group>"; };
 		43D43CDC1B06B8F200016BB5 /* ChatWithSomeoneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatWithSomeoneViewController.h; sourceTree = "<group>"; };
@@ -169,6 +175,10 @@
 				43BBC1D41AEEFF6F00ECE4D5 /* AppDelegate.m */,
 				43BBC1D61AEEFF6F00ECE4D5 /* ViewController.h */,
 				43BBC1D71AEEFF6F00ECE4D5 /* ViewController.m */,
+				43C640B81B2B624400E439D3 /* Emotion.h */,
+				43C640B91B2B624400E439D3 /* Emotion.m */,
+				43C640B51B2B61FA00E439D3 /* EmotionDataManager.h */,
+				43C640B61B2B61FA00E439D3 /* EmotionDataManager.m */,
 				43D43CDC1B06B8F200016BB5 /* ChatWithSomeoneViewController.h */,
 				43D43CDD1B06B8F200016BB5 /* ChatWithSomeoneViewController.m */,
 				43BBC1D91AEEFF6F00ECE4D5 /* Main.storyboard */,
@@ -349,10 +359,12 @@
 				43BBC1D81AEEFF6F00ECE4D5 /* ViewController.m in Sources */,
 				43BE0DFD1AFE89A000B9B2BC /* SignUpViewController.m in Sources */,
 				439B3AE81B0D8348000BF4C7 /* ChatViewController.m in Sources */,
+				43C640B71B2B61FA00E439D3 /* EmotionDataManager.m in Sources */,
 				43D43CDE1B06B8F200016BB5 /* ChatWithSomeoneViewController.m in Sources */,
 				43694B431B13FF5F00779368 /* MBProgressHUD.m in Sources */,
 				43BE0DFA1AFE897F00B9B2BC /* LogInViewController.m in Sources */,
 				43BBC1D51AEEFF6F00ECE4D5 /* AppDelegate.m in Sources */,
+				43C640BA1B2B624400E439D3 /* Emotion.m in Sources */,
 				43D43CDB1B06AF4800016BB5 /* ACTUALMyTrendsViewController.m in Sources */,
 				43BBC1D21AEEFF6F00ECE4D5 /* main.m in Sources */,
 			);

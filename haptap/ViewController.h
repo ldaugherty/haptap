@@ -29,30 +29,25 @@
 @property (strong, nonatomic) IBOutlet UILabel *welcomeLabel;
 @property (strong, nonatomic) IBOutlet UILabel *thankYouLabel;
 
+- (IBAction)yesReasonButtonPressed:(id)sender;
+- (IBAction)noReasonButtonPressed:(id)sender;
+- (IBAction)submitReasonButtonPressed:(id)sender;
+- (IBAction)actuallyNoReasonButtonPressed:(id)sender;
+- (IBAction)neutralButtonPressed:(UIButton *)sender;
+
+
 @property (strong, nonatomic) IBOutlet UILabel *reasonLabel;
-- (IBAction)yesReasonButton:(id)sender;
-- (IBAction)noReasonButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextView *reasonTextField;
-- (IBAction)submitReasonButton:(id)sender;
-- (IBAction)goToMyTrendsPageButton:(id)sender;
-- (IBAction)goToChatWithSomeoneButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UILabel *howAreYouFeelingLabel;
-- (IBAction)actuallyNoReasonButton:(id)sender;
-- (IBAction)neutralButton:(UIButton *)sender;
-
-
-// have to link all buttons as labels all well to hide them on view
-@property (strong, nonatomic) IBOutlet UIButton *yesReasonLabel;
-@property (strong, nonatomic) IBOutlet UIButton *noReasonLabel;
-@property (strong, nonatomic) IBOutlet UIButton *submitReasonLabel;
-@property (strong, nonatomic) IBOutlet UIButton *goToMyTrendsPageLabel;
-@property (strong, nonatomic) IBOutlet UIButton *goToChatWithSomeoneLabel;
-@property (strong, nonatomic) IBOutlet UIButton *submitEmotionLabel;
-@property (strong, nonatomic) IBOutlet UIButton *actuallyNoReasonLabel;
-@property (strong, nonatomic) IBOutlet UIButton *neutralLabel;
+@property (strong, nonatomic) IBOutlet UIButton *yesReasonButton;
+@property (strong, nonatomic) IBOutlet UIButton *noReasonButton;
+@property (strong, nonatomic) IBOutlet UIButton *submitReasonButton;
+@property (strong, nonatomic) IBOutlet UIButton *submitEmotionButton;
+@property (strong, nonatomic) IBOutlet UIButton *actuallyNoReasonButton;
+@property (strong, nonatomic) IBOutlet UIButton *neutralButton;
 
 @property (strong, nonatomic) IBOutlet UICollectionView *gridView;
-@property (strong, nonatomic) IBOutlet UIButton *differentEmotionLabel;
+@property (strong, nonatomic) IBOutlet UIButton *differentEmotionButton;
 
 //tabs
 @property (strong, nonatomic) IBOutlet UITabBarItem *trendsTab;

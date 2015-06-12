@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="qSB-je-tAj">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6724" systemVersion="14C2055" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="y8U-fO-Lfo">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6711"/>
@@ -163,7 +163,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XrH-3d-C0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223.5" y="-146.5"/>
+            <point key="canvasLocation" x="-376.5" y="-214.5"/>
         </scene>
         <!--Chat Globally-->
         <scene sceneID="LtV-hn-tHw">
@@ -174,12 +174,12 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" showsSelectionImmediatelyOnTouchBegin="NO" rowHeight="59" sectionHeaderHeight="22" sectionFooterHeight="22" id="z2V-qB-IT8">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="616"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="573"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ChatCell" textLabel="OYx-01-j2q" detailTextLabel="Tqw-Mk-SGy" rowHeight="59" style="IBUITableViewCellStyleSubtitle" id="4Aa-yp-qGC">
-                                        <rect key="frame" x="0.0" y="116" width="375" height="59"/>
+                                        <rect key="frame" x="0.0" y="22" width="375" height="59"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4Aa-yp-qGC" id="utm-1R-RQ4">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="58"/>
@@ -207,7 +207,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" id="y6O-Vg-qmi">
-                                <rect key="frame" x="0.0" y="614" width="375" height="53"/>
+                                <rect key="frame" x="0.0" y="571" width="375" height="53"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="new message..." minimumFontSize="17" id="tMW-gB-D2S">
@@ -257,7 +257,44 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QR8-F8-ida" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="223.5" y="649.5"/>
+            <point key="canvasLocation" x="139.5" y="-214.5"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="B5h-2y-tBC">
+            <objects>
+                <tabBarController id="y8U-fO-Lfo" sceneMemberID="viewController">
+                    <nil key="simulatedBottomBarMetrics"/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="6cD-yB-xQP">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="qSB-je-tAj" kind="relationship" relationship="viewControllers" id="ry6-us-k9k"/>
+                        <segue destination="jHw-uh-Zrk" kind="relationship" relationship="viewControllers" id="75a-rM-0N4"/>
+                        <segue destination="5f3-Xc-3bn" kind="relationship" relationship="viewControllers" id="tnK-zf-ZAg"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lJ0-Cn-10i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1744" y="-738"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="rlz-bO-6ba">
+            <objects>
+                <navigationController id="jHw-uh-Zrk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="ve7-7Q-SKv"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="A1F-RU-MH7">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="vtO-OP-e2k" kind="relationship" relationship="rootViewController" id="wvR-dk-urW"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="u1B-mG-W4B" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-904" y="-214"/>
         </scene>
         <!--My Trends-->
         <scene sceneID="xf1-tS-cbj">
@@ -276,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Hnf-PI-bP0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="662.5" y="-130.5"/>
+            <point key="canvasLocation" x="890.5" y="-1818.5"/>
         </scene>
         <!--Settings-->
         <scene sceneID="XNJ-Al-9aL">
@@ -292,7 +329,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FK-HO-9Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1121.5" y="-122.5"/>
+            <point key="canvasLocation" x="-903.5" y="765.5"/>
         </scene>
         <!--Haptap-->
         <scene sceneID="ufC-wZ-h7g">
@@ -353,7 +390,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="submitReasonButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="zdN-NJ-WlD"/>
+                                    <action selector="submitReasonButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="x9M-vQ-NXn"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aZJ-re-4y3">
@@ -367,21 +404,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="yesReasonButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="kV8-0K-cas"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0Iy-2R-GyG">
-                                <rect key="frame" x="94" y="372" width="192" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="17"/>
-                                <state key="normal" title="Go to Chat Page">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToChatWithSomeoneButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="62K-ZR-Sk8"/>
-                                    <segue destination="vtO-OP-e2k" kind="push" identifier="viewControllerToChatWithSomeone" id="LGp-fk-oML"/>
+                                    <action selector="yesReasonButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="igT-CD-lNX"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8il-6i-Huq">
@@ -409,7 +432,7 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="noReasonButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="YNO-2a-cKa"/>
+                                    <action selector="noReasonButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="hib-Dj-YFq"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="YOR-Bq-0YA">
@@ -421,7 +444,7 @@
                                     <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="actuallyNoReasonButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ruW-4D-0tA"/>
+                                    <action selector="actuallyNoReasonButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Xkb-pw-vG3"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Is there a reason you're feeling this way?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="TK7-hW-mAx">
@@ -431,20 +454,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="wQg-cP-efa">
-                                <rect key="frame" x="94" y="278" width="192" height="49"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Palatino-Bold" family="Palatino" pointSize="16"/>
-                                <state key="normal" title="Go to My Trends Page">
-                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="goToMyTrendsPageButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="PsT-hh-F1g"/>
-                                    <segue destination="t1d-XV-3uQ" kind="push" id="69T-Ha-lDf"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="UL2-jd-bzL">
                                 <rect key="frame" x="109" y="225" width="157" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -565,20 +574,9 @@
                                     <color key="titleShadowColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="neutralButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vD8-g5-wzP"/>
+                                    <action selector="neutralButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RPh-Lq-bKn"/>
                                 </connections>
                             </button>
-                            <tabBar contentMode="scaleToFill" id="mxa-ws-P24">
-                                <rect key="frame" x="0.0" y="618" width="375" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem title="Home" id="xk3-Cl-ILs"/>
-                                    <tabBarItem title="Trends" id="wUC-LR-msT"/>
-                                    <tabBarItem title="Chat" id="Xhv-4H-ZKu"/>
-                                    <tabBarItem systemItem="more" id="Sdb-15-Rzh"/>
-                                </items>
-                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" red="0.47832006640000002" green="0.75457751920000005" blue="0.90461253159999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
@@ -589,37 +587,31 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="actuallyNoReasonLabel" destination="YOR-Bq-0YA" id="mtQ-XU-M1A"/>
+                        <outlet property="actuallyNoReasonButton" destination="YOR-Bq-0YA" id="onB-90-KDM"/>
                         <outlet property="barelyLabel" destination="MKJ-O2-c6j" id="XUc-30-qZa"/>
-                        <outlet property="chatTab" destination="Xhv-4H-ZKu" id="Ma0-eA-c9d"/>
-                        <outlet property="differentEmotionLabel" destination="0h7-Fj-McR" id="hEN-GY-jJS"/>
+                        <outlet property="differentEmotionButton" destination="0h7-Fj-McR" id="KCL-pP-5fa"/>
                         <outlet property="extremelyLabel" destination="fSw-TL-f4s" id="Ykq-g0-v29"/>
-                        <outlet property="goToChatWithSomeoneLabel" destination="0Iy-2R-GyG" id="D6I-1i-Y3E"/>
-                        <outlet property="goToMyTrendsPageLabel" destination="wQg-cP-efa" id="nIJ-4a-qba"/>
                         <outlet property="gridView" destination="vTm-Cr-nxc" id="xRf-Lz-8Yy"/>
-                        <outlet property="homeTab" destination="xk3-Cl-ILs" id="ARV-Gv-tF4"/>
                         <outlet property="howAreYouFeelingLabel" destination="46T-hU-bKK" id="Ibn-lj-mJ3"/>
                         <outlet property="howAreYouLabel" destination="RD6-hK-AbR" id="lsd-Ir-1lP"/>
-                        <outlet property="moreTab" destination="Sdb-15-Rzh" id="K5h-dE-EG0"/>
-                        <outlet property="neutralLabel" destination="GfM-Px-dHp" id="1Kj-jY-b1V"/>
-                        <outlet property="noReasonLabel" destination="5B6-0X-5Dk" id="J5r-86-v0n"/>
+                        <outlet property="neutralButton" destination="GfM-Px-dHp" id="jIq-1I-h6C"/>
+                        <outlet property="noReasonButton" destination="5B6-0X-5Dk" id="vzg-YG-sA1"/>
                         <outlet property="oncePerHourLabel" destination="auZ-vt-ZeO" id="QYL-oH-zTc"/>
                         <outlet property="reasonLabel" destination="TK7-hW-mAx" id="5u4-OT-rf6"/>
                         <outlet property="reasonTextField" destination="bA4-hk-uis" id="r1Q-kh-qgA"/>
                         <outlet property="slider" destination="vvu-MA-9Qj" id="2uP-bj-72p"/>
                         <outlet property="sliderLabel" destination="UL2-jd-bzL" id="5nP-Qd-w1G"/>
-                        <outlet property="submitEmotionLabel" destination="8il-6i-Huq" id="FS6-9w-eKc"/>
-                        <outlet property="submitReasonLabel" destination="DRS-ez-24k" id="b6J-Gx-iV2"/>
+                        <outlet property="submitEmotionButton" destination="8il-6i-Huq" id="bc3-gy-6gV"/>
+                        <outlet property="submitReasonButton" destination="DRS-ez-24k" id="5aR-iD-Wpj"/>
                         <outlet property="thankYouLabel" destination="aiG-BR-3jg" id="o5o-ap-cXN"/>
-                        <outlet property="trendsTab" destination="wUC-LR-msT" id="rwZ-jk-YPr"/>
                         <outlet property="welcomeLabel" destination="Uhx-4Q-D8e" id="Fxj-Sk-ggW"/>
-                        <outlet property="yesReasonLabel" destination="aZJ-re-4y3" id="d6b-Kk-RBU"/>
+                        <outlet property="yesReasonButton" destination="aZJ-re-4y3" id="X4Q-xF-TPr"/>
                         <segue destination="TTC-am-WW6" kind="modal" identifier="loginsegue" id="hCM-qg-iUc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223.5" y="-146.5"/>
+            <point key="canvasLocation" x="-127.5" y="-1402.5"/>
         </scene>
         <!--Suggestions-->
         <scene sceneID="TI8-Sh-hsO">
@@ -657,7 +649,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DRW-uv-wfb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1042.5" y="1099.5"/>
+            <point key="canvasLocation" x="1462.5" y="-1402.5"/>
         </scene>
         <!--Questions-->
         <scene sceneID="P3W-bJ-Tsk">
@@ -747,7 +739,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ai-lw-pDI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-565.5" y="1099.5"/>
+            <point key="canvasLocation" x="890.5" y="-948.5"/>
         </scene>
         <!--logInViewController-->
         <scene sceneID="slM-9o-vcY">
@@ -841,7 +833,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Vg-tp-71y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-232.5" y="1894.5"/>
+            <point key="canvasLocation" x="890.5" y="-17.5"/>
         </scene>
         <!--signUpViewController-->
         <scene sceneID="J6E-8l-AlO">
@@ -935,7 +927,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M5l-SA-nEO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.5" y="1894.5"/>
+            <point key="canvasLocation" x="1404.5" y="-17.5"/>
         </scene>
         <!--Item-->
         <scene sceneID="D01-B0-jX3">
@@ -957,7 +949,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eVl-gs-b9v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-223.5" y="-914.5"/>
+            <point key="canvasLocation" x="-775.5" y="-1386.5"/>
         </scene>
     </scenes>
     <resources>

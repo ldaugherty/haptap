@@ -9,18 +9,8 @@
 #import "ViewController.h"
 #import "SignUpViewController.h"
 #import "ChatWithSomeoneViewController.h"
-
-@interface Emotion : NSObject
-
-@property (nonatomic, strong) NSString *title;
-@property (nonatomic, strong) UIImage *image;
-
-@end
-
-@implementation Emotion
-
-
-@end
+#import "Emotion.h"
+#import "EmotionDataManager.h"
 
 @interface ViewController ()
 
@@ -30,18 +20,17 @@
 @end
 
 
-
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSArray *emotionNames = @[@"sad", @"angry", @"annoyed", @"anxious", @"confused", @"amused", @"excited", @"happy", @"loving", @"neutral"];
+    NSArray *emotionNames = @[@"sad", @"angry", @"annoyed", @"anxious", @"confused", @"amused", @"excited", @"happy", @"loving"];
     
     self.emotions = [NSMutableArray array];
     
     for (NSString *emotionName in emotionNames) {
-        [self.emotions addObject:[self emotionWithTitle:emotionName image:[UIImage imageNamed:emotionName]]];
+        [self.emotions addObject:[Emotion emotionWithTitle:emotionName image:[UIImage imageNamed:emotionName]]];
     }
     
     [self.gridView reloadData];
@@ -53,24 +42,15 @@
     [emotion saveInBackground];
     
 //set everything after emojis hidden on view
-    [self.noReasonLabel setHidden:YES];
-    [self.yesReasonLabel setHidden:YES];
-    [self.submitReasonLabel setHidden:YES];
-    [self.goToMyTrendsPageLabel setHidden:YES];
-    [self.goToChatWithSomeoneLabel setHidden:YES];
+    [self.noReasonButton setHidden:YES];
+    [self.yesReasonButton setHidden:YES];
+    [self.submitReasonButton setHidden:YES];
     [self.reasonTextField setHidden:YES];
     [self.reasonLabel setHidden:YES];
-    [self.actuallyNoReasonLabel setHidden:YES];
+    [self.actuallyNoReasonButton setHidden:YES];
     [self.thankYouLabel setHidden:YES];
-    [self.submitEmotionLabel setHidden:YES];
+    [self.submitEmotionButton setHidden:YES];
    }
-
-- (Emotion *)emotionWithTitle:(NSString *)title image:(UIImage *)image {
-    Emotion *emotion = [Emotion new];
-    emotion.title = title;
-    emotion.image = image;
-    return emotion;
-}
 
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -95,98 +75,100 @@
     self.extremelyLabel.hidden = YES;
     self.gridView.hidden = NO;
     self.gridView.alpha = 1;
-    self.differentEmotionLabel.hidden = YES;
+    self.differentEmotionButton.hidden = YES;
     self.howAreYouFeelingLabel.hidden = NO;
     self.howAreYouFeelingLabel.text = @"How are you feeling?";
     self.slider.hidden = YES;
-    self.neutralLabel.hidden = NO;
-    self.submitEmotionLabel.hidden = YES;
+    self.neutralButton.hidden = NO;
+    self.submitEmotionButton.hidden = YES;
     self.howAreYouLabel.hidden = NO;
     [self.emojiImageUp removeFromSuperview];
-    self.selectedEmotion.title=nil;
+
+    self.selectedEmotion = nil;
+    [[EmotionDataManager dataManager] setCurrentEmotion:nil];
 }
 
 - (IBAction)submitEmotionButton:(id)sender {
-    [self.noReasonLabel setHidden:NO];
-    [self.yesReasonLabel setHidden:NO];
+    [self.noReasonButton setHidden:NO];
+    [self.yesReasonButton setHidden:NO];
     [self.reasonLabel setHidden:NO];
     [self.howAreYouFeelingLabel setHidden:YES];
-    [self.submitEmotionLabel setHidden:YES];
+    [self.submitEmotionButton setHidden:YES];
     [self.slider setHidden:YES];
     [self.sliderLabel setHidden:YES];
     [self.thankYouLabel setHidden:NO];
     self.barelyLabel.hidden = YES;
     self.extremelyLabel.hidden = YES;
-    self.differentEmotionLabel.hidden = YES;
+    self.differentEmotionButton.hidden = YES;
     self.emojiImageUp.hidden = YES;
     [self.emojiImageUp removeFromSuperview];
    
 }
-
-// enter all possible slider values & assign thumb image & label text with emotion
-
-
-
-- (IBAction)sliderValueChanged:(id)sender {
-    if (self.slider.value < 1) {
-        self.sliderLabel.text = @"very sad";
-        UIImage *thumbImageNormal = [UIImage imageNamed:@"Tsmile.jpg"];
-        [self.slider setThumbImage:thumbImageNormal forState:UIControlStateNormal];
-   
-    }
-    else if (self.slider.value > 1 && self.slider.value < 2) {
-    self.sliderLabel.text= @"hateful";
-    }
-    else if (self.slider.value > 2 && self.slider.value < 3) {
-        self.sliderLabel.text= @"sad";
-    }
-    else if (self.slider.value > 3 && self.slider.value < 4) {
-        self.sliderLabel.text= @"angry";
-    }
-    else if (self.slider.value > 4 && self.slider.value < 5) {
-        self.sliderLabel.text= @"annoyed";
-    }
-    else if (self.slider.value > 5 && self.slider.value < 6) {
-        self.sliderLabel.text= @"disgusted";
-    }
-    else if (self.slider.value > 6 && self.slider.value < 7) {
-        self.sliderLabel.text= @"scared";
-    }
-    else if (self.slider.value > 7 && self.slider.value < 8) {
-        self.sliderLabel.text= @"anxious/nervous";
-    }
-    else if (self.slider.value > 8 && self.slider.value < 9) {
-        self.sliderLabel.text= @"wild";
-    }
-    else if (self.slider.value > 9 && self.slider.value < 10) {
-        self.sliderLabel.text= @"confused";
-    }
-    else if (self.slider.value > 10 && self.slider.value < 11) {
-        self.sliderLabel.text= @"fine";
-    }
-    else if (self.slider.value > 11 && self.slider.value < 12) {
-        self.sliderLabel.text= @"content";
-    }
-    else if (self.slider.value > 12 && self.slider.value < 13) {
-        self.sliderLabel.text= @"surprised";
-    }
-    else if (self.slider.value > 13 && self.slider.value < 14) {
-        self.sliderLabel.text= @"amused";
-    }
-    else if (self.slider.value > 14 && self.slider.value < 15) {
-        self.sliderLabel.text= @"excited";
-    }
-    else if (self.slider.value > 15 && self.slider.value < 16) {
-        self.sliderLabel.text= @"happy";
-    }
-    else if (self.slider.value > 16 && self.slider.value < 17) {
-        self.sliderLabel.text= @"loving";
-    }
-    else if (self.slider.value > 17) {
-        self.sliderLabel.text= @"ecstatic";
-    }
-}
-    
+//
+//// enter all possible slider values & assign thumb image & label text with emotion
+//
+//
+//
+//- (IBAction)sliderValueChanged:(id)sender {
+//    if (self.slider.value < 1) {
+//        self.sliderLabel.text = @"very sad";
+//        UIImage *thumbImageNormal = [UIImage imageNamed:@"Tsmile.jpg"];
+//        [self.slider setThumbImage:thumbImageNormal forState:UIControlStateNormal];
+//   
+//    }
+//    else if (self.slider.value > 1 && self.slider.value < 2) {
+//    self.sliderLabel.text= @"hateful";
+//    }
+//    else if (self.slider.value > 2 && self.slider.value < 3) {
+//        self.sliderLabel.text= @"sad";
+//    }
+//    else if (self.slider.value > 3 && self.slider.value < 4) {
+//        self.sliderLabel.text= @"angry";
+//    }
+//    else if (self.slider.value > 4 && self.slider.value < 5) {
+//        self.sliderLabel.text= @"annoyed";
+//    }
+//    else if (self.slider.value > 5 && self.slider.value < 6) {
+//        self.sliderLabel.text= @"disgusted";
+//    }
+//    else if (self.slider.value > 6 && self.slider.value < 7) {
+//        self.sliderLabel.text= @"scared";
+//    }
+//    else if (self.slider.value > 7 && self.slider.value < 8) {
+//        self.sliderLabel.text= @"anxious/nervous";
+//    }
+//    else if (self.slider.value > 8 && self.slider.value < 9) {
+//        self.sliderLabel.text= @"wild";
+//    }
+//    else if (self.slider.value > 9 && self.slider.value < 10) {
+//        self.sliderLabel.text= @"confused";
+//    }
+//    else if (self.slider.value > 10 && self.slider.value < 11) {
+//        self.sliderLabel.text= @"fine";
+//    }
+//    else if (self.slider.value > 11 && self.slider.value < 12) {
+//        self.sliderLabel.text= @"content";
+//    }
+//    else if (self.slider.value > 12 && self.slider.value < 13) {
+//        self.sliderLabel.text= @"surprised";
+//    }
+//    else if (self.slider.value > 13 && self.slider.value < 14) {
+//        self.sliderLabel.text= @"amused";
+//    }
+//    else if (self.slider.value > 14 && self.slider.value < 15) {
+//        self.sliderLabel.text= @"excited";
+//    }
+//    else if (self.slider.value > 15 && self.slider.value < 16) {
+//        self.sliderLabel.text= @"happy";
+//    }
+//    else if (self.slider.value > 16 && self.slider.value < 17) {
+//        self.sliderLabel.text= @"loving";
+//    }
+//    else if (self.slider.value > 17) {
+//        self.sliderLabel.text= @"ecstatic";
+//    }
+//}
+//    
 
 
 - (IBAction)logoutPressed:(id)sender {
@@ -194,62 +176,52 @@
     [self performSegueWithIdentifier:@"loginsegue" sender:self];
 }
 
-- (IBAction)yesReasonButton:(id)sender {
-    [self.yesReasonLabel setHidden:YES];
-    [self.noReasonLabel setHidden:YES];
+- (IBAction)yesReasonButtonPressed:(id)sender {
+    [self.yesReasonButton setHidden:YES];
+    [self.noReasonButton setHidden:YES];
     [self.reasonTextField setHidden:NO];
     [self.reasonTextField becomeFirstResponder];
     
-    [self.submitReasonLabel setHidden:NO];
-    [self.actuallyNoReasonLabel setHidden:NO];
+    [self.submitReasonButton setHidden:NO];
+    [self.actuallyNoReasonButton setHidden:NO];
 }
 
-- (IBAction)noReasonButton:(id)sender {
-    [self.yesReasonLabel setHidden:YES];
-    [self.noReasonLabel setHidden:YES];
-    [self.goToMyTrendsPageLabel setHidden:NO];
-    [self.goToChatWithSomeoneLabel setHidden:NO];
+- (IBAction)noReasonButtonPressed:(id)sender {
+    [self.yesReasonButton setHidden:YES];
+    [self.noReasonButton setHidden:YES];
     [self.reasonLabel setHidden:YES];
     [self.thankYouLabel setHidden:YES];
      self.oncePerHourLabel.hidden = NO;
-    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.noReasonLabel];
 }
-- (IBAction)submitReasonButton:(id)sender {
+
+- (IBAction)submitReasonButtonPressed:(id)sender {
     [self.reasonTextField setHidden:YES];
-    [self.actuallyNoReasonLabel setHidden:YES];
-    [self.goToMyTrendsPageLabel setHidden:NO];
-    [self.goToChatWithSomeoneLabel setHidden:NO];
+    [self.actuallyNoReasonButton setHidden:YES];
     [self.reasonLabel setHidden:YES];
-    [self.submitReasonLabel setHidden:YES];
+    [self.submitReasonButton setHidden:YES];
     [self.thankYouLabel setHidden:YES];
     self.oncePerHourLabel.hidden = NO;
     [self.reasonTextField resignFirstResponder];
-    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.submitReasonLabel];
-   
 }
 
 
-- (IBAction)actuallyNoReasonButton:(id)sender {
+- (IBAction)actuallyNoReasonButtonPressed:(id)sender {
     [self.reasonTextField setHidden:YES];
-    [self.submitReasonLabel setHidden:YES];
-    [self.actuallyNoReasonLabel setHidden:YES];
+    [self.submitReasonButton setHidden:YES];
+    [self.actuallyNoReasonButton setHidden:YES];
     [self.reasonLabel setHidden:YES];
-    [self.goToChatWithSomeoneLabel setHidden:NO];
-    [self.goToMyTrendsPageLabel setHidden:NO];
     [self.thankYouLabel setHidden:YES];
      self.oncePerHourLabel.hidden = NO;
-    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.actuallyNoReasonLabel];
 }
 
-- (IBAction)neutralButton:(UIButton *)sender {
+- (IBAction)neutralButtonPressed:(UIButton *)sender {
     self.gridView.hidden = YES;
-    self.neutralLabel.hidden = YES;
+    self.neutralButton.hidden = YES;
     self.howAreYouFeelingLabel.hidden = YES;
-    self.submitEmotionLabel.hidden = YES;
-    self.goToChatWithSomeoneLabel.hidden = NO;
-    self.goToMyTrendsPageLabel.hidden = NO;
+    self.submitEmotionButton.hidden = YES;
     self.howAreYouLabel.hidden = YES;
-    [self performSegueWithIdentifier:@"viewControllerToChatWithSomeone" sender:self.neutralLabel];
+    self.oncePerHourLabel.hidden = NO;
+    self.selectedEmotion = [Emotion emotionWithTitle:@"neutral"];
 }
 
 
@@ -282,11 +254,13 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     NSLog(@"Selected emotion: %@", self.emotions[indexPath.item]);
     self.selectedEmotion = self.emotions[indexPath.item];
+    [[EmotionDataManager dataManager] setCurrentEmotion:self.selectedEmotion];
+    
     self.slider.alpha = 0;
     self.slider.hidden = NO;
     self.barelyLabel.hidden = NO;
     self.extremelyLabel.hidden = NO;
-    self.neutralLabel.hidden = YES;
+    self.neutralButton.hidden = YES;
     
     UIView *cellContent = [self.gridView cellForItemAtIndexPath:indexPath].contentView;
     UIImageView *emojiImageView;
@@ -323,38 +297,10 @@
         self.emojiImageUp.frame = CGRectMake((self.view.frame.size.width / 2.f) - (size/2.f), 162, size, size);
     } completion:^(BOOL finished) {
         self.gridView.hidden = YES;
-        self.differentEmotionLabel.hidden = NO;
+        self.differentEmotionButton.hidden = NO;
     }];
-    self.submitEmotionLabel.hidden = NO;
+    self.submitEmotionButton.hidden = NO;
     
-}
-
-
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"viewControllerToChatWithSomeone"]) {
-        
-        
-        
-        ChatWithSomeoneViewController *vc = [segue destinationViewController];
-        
-        if ([sender isEqual:self.actuallyNoReasonLabel]) {
-            vc.myCurrentEmotion = self.selectedEmotion.title;
-            NSLog(@"%@", vc.myCurrentEmotion);
-        }
-        else if ([sender isEqual:self.noReasonLabel]) {
-            vc.myCurrentEmotion = self.selectedEmotion.title;
-            NSLog(@"%@", vc.myCurrentEmotion);
-        }
-        else if ([sender isEqual:self.submitReasonLabel]) {
-            vc.myCurrentEmotion = self.selectedEmotion.title;
-            NSLog(@"%@", vc.myCurrentEmotion);
-        }
-        else if ([sender isEqual:self.neutralLabel]) {
-            vc.myCurrentEmotion = @"neutral";
-            NSLog(@"%@", vc.myCurrentEmotion);
-        
-        }
-    }
 }
 
 @end

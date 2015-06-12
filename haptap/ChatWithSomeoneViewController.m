@@ -7,12 +7,13 @@
 //
 
 #import "ChatWithSomeoneViewController.h"
+
 #import <Firebase/Firebase.h>
 #import <Parse/Parse.h>
-
 #import "MBProgressHUD.h"
 
 #import "ChatViewController.h"
+#import "EmotionDataManager.h"
 
 #define FIREBASE_ROOT (@"https://haptap.firebaseIO.com/")
 
@@ -80,7 +81,7 @@
 }
 
 - (IBAction)findMeSomeoneButton:(id)sender {
-    if (self.myCurrentEmotion != nil) {
+    if ([[EmotionDataManager dataManager] getEmotionForCurrentHour]) {
         
         NSString *theirEmotion = [self.pickerData objectAtIndex:[self.picker selectedRowInComponent:0]];
         
@@ -180,10 +181,11 @@
 
 - (void)findChatWithAnyOtherEmotionForMyEmotion {
     Firebase *allEmotionsFirebase = [[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"];
+    NSString *myEmotion = [[EmotionDataManager dataManager] getEmotionForCurrentHour].title;
     [allEmotionsFirebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         for (FDataSnapshot *userList in snapshot.children) {
             for (FDataSnapshot *user in userList.children) {
-                if ([user.value[@"emotion_wanted"] isEqualToString:self.myCurrentEmotion] || [user.value[@"emotion_wanted"] isEqualToString:@"any way!"]) {
+                if ([user.value[@"emotion_wanted"] isEqualToString:myEmotion] || [user.value[@"emotion_wanted"] isEqualToString:@"any way!"]) {
                     if ([user.value[@"chat"] length]) {
                         continue;
                     }
@@ -192,7 +194,7 @@
                 }
             }
         }
-        [self createWaitingFirebaseUserWithEmotion:self.myCurrentEmotion lookingForEmotion:@"any way!"];
+        [self createWaitingFirebaseUserWithEmotion:myEmotion lookingForEmotion:@"any way!"];
     }];
 }
 
@@ -204,12 +206,13 @@
      [self findChatWithAnyOtherEmotionForMyEmotion];
         return;
     }
+    NSString *myEmotion = [[EmotionDataManager dataManager] getEmotionForCurrentHour].title;
 
     Firebase *emotionFirebase = [[[[Firebase alloc] initWithUrl:FIREBASE_ROOT] childByAppendingPath:@"users_waiting"] childByAppendingPath:theirEmotion];
     
     [emotionFirebase observeSingleEventOfType:FEventTypeValue withBlock:^(FDataSnapshot *snapshot) {
         for (FDataSnapshot *user in snapshot.children) {
-            if ([user.value[@"emotion_wanted"] isEqualToString:self.myCurrentEmotion] || [user.value[@"emotion_wanted"] isEqualToString:@"any way!"]) {
+            if ([user.value[@"emotion_wanted"] isEqualToString:myEmotion] || [user.value[@"emotion_wanted"] isEqualToString:@"any way!"]) {
                 if ([user.value[@"chat"] length]) {
                     continue;
                 }
@@ -219,7 +222,7 @@
             
            
         }
-        [self createWaitingFirebaseUserWithEmotion:self.myCurrentEmotion lookingForEmotion:theirEmotion];
+        [self createWaitingFirebaseUserWithEmotion:myEmotion lookingForEmotion:theirEmotion];
     }];
 }
 
