@@ -278,11 +278,11 @@
             </objects>
             <point key="canvasLocation" x="-1744" y="-738"/>
         </scene>
-        <!--Item-->
+        <!--Chat-->
         <scene sceneID="rlz-bO-6ba">
             <objects>
                 <navigationController id="jHw-uh-Zrk" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="ve7-7Q-SKv"/>
+                    <tabBarItem key="tabBarItem" title="Chat" image="Chat" id="ve7-7Q-SKv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="A1F-RU-MH7">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -323,7 +323,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Settings" image="nil" id="SZ7-Sl-dyc"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="Settings" id="SZ7-Sl-dyc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3FK-HO-9Ow" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -928,12 +928,12 @@
             </objects>
             <point key="canvasLocation" x="1404.5" y="-17.5"/>
         </scene>
-        <!--Item-->
+        <!--Home-->
         <scene sceneID="D01-B0-jX3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="qSB-je-tAj" sceneMemberID="viewController">
                     <extendedEdge key="edgesForExtendedLayout" bottom="YES"/>
-                    <tabBarItem key="tabBarItem" title="Item" id="cTn-S7-XZc"/>
+                    <tabBarItem key="tabBarItem" title="Home" image="Home" id="cTn-S7-XZc"/>
                     <toolbarItems/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -952,6 +952,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Chat" width="30" height="30"/>
+        <image name="Home" width="100" height="100"/>
+        <image name="Settings" width="100" height="100"/>
         <image name="imageedit_13_8830082453.gif" width="585" height="585"/>
         <image name="nil" width="30" height="30"/>
     </resources>

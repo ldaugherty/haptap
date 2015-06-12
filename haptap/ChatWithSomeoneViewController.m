@@ -106,7 +106,7 @@
     }
     else if(buttonIndex==0)
     {
-         [self.navigationController popViewControllerAnimated:YES];
+        [self.tabBarController setSelectedIndex:0];
     }
 }
 
