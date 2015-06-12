@@ -76,7 +76,9 @@ alpha:1.0]
 - (void)moveControls:(NSNotification*)notification up:(BOOL)up
 {
     NSDictionary* userInfo = [notification userInfo];
-    CGFloat kbHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height;
+    CGFloat tabBarHeight = 49;
+    CGFloat kbHeight = [[userInfo objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue].size.height - tabBarHeight;
+    
     CGFloat delta = kbHeight - self.keyboardHeight;
     self.keyboardHeight = kbHeight;
     
